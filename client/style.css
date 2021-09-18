@@ -1,0 +1,47 @@
+:root {
+  --grey-one: #F5F5F5;
+  --grey-two: #D8D8D8;
+  --grey-three: #BCBCBC;
+  --grey-four: #7E7E7E;
+}
+
+* {
+  font-family: 'Helvetica Neue';
+  color: var(--grey-four);
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: var(--grey-one);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+  box-shadow: 0px -27px 36px 12px rgba(0, 0, 0, 0.75);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.vertical-divider {
+  height: 100%;
+  width: 2px;
+  background-color: var(--grey-three);
+}
+
+.user-menu-icon {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.user-menu-icon i {
+  font-size: 20pt;
+}
