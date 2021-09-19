@@ -39,14 +39,14 @@ nav {
   background-color: var(--grey-three);
 }
 
-.user-menu-icon {
+.nav-icon {
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.user-menu-icon i {
+.nav-icon i {
   font-size: 20pt;
 }
 
