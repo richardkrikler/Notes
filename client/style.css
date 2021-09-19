@@ -12,6 +12,7 @@
   padding: 0;
 }
 
+/* Nav */
 nav {
   background-color: var(--grey-one);
   display: flex;
@@ -20,6 +21,7 @@ nav {
   padding-bottom: 10px;
   padding-left: 13px;
   padding-right: 13px;
+  margin-bottom: 40px;
   box-shadow: 0px -27px 36px 12px rgba(0, 0, 0, 0.75);
 }
 
@@ -44,4 +46,38 @@ nav {
 
 .user-menu-icon i {
   font-size: 20pt;
+}
+
+/* Main */
+main {
+  margin-bottom: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.inner-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  grid-gap: 40px;
+  justify-content: center;
+  padding: initial;
+}
+
+.folder-box {
+  height: 100px;
+  width: 200px;
+  background-color: var(--grey-one);
+  box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+}
+
+
+.folder-box p {
+  height: 100%;
+  font-size: 20pt;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: scroll;
 }
