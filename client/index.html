@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -33,13 +33,13 @@
     </ul>
   </main>
 
-  <div class="modal-box visible">
+  <div class="modal-box" id="add-folder-modal-box">
     <div class="inner-modal-div">
       <h2>Add new Folder</h2>
-      <input type="text" name="folderName" id="folderName">
+      <input type="text" name="folder_name" id="folder_name">
       <div class="modal-buttons-div">
         <button>Confirm</button>
-        <button>Cancel</button>
+        <button class="cancel-modal-box">Cancel</button>
       </div>
     </div>
   </div>

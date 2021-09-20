@@ -3,7 +3,7 @@
   --grey-two: #D8D8D8;
   --grey-three: #BCBCBC;
   --grey-four: #7E7E7E;
-  --grey-three-transparent: #bcbcbc79;
+  --grey-three-transparent: #bcbcbc6b;
 }
 
 * {
@@ -27,7 +27,7 @@ input[type=text] {
   background-color: var(--grey-two);
   border: none;
   box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.05);
-  padding: 5px;
+  padding: 8px;
   margin-top: 5px;
   margin-bottom: 5px;
   outline: none;
@@ -99,7 +99,7 @@ nav {
 
 .modal-box .inner-modal-div input[type=text] {
   width: calc(100% - 10px);
-  font-size: 21px;
+  font-size: 18px;
 }
 
 .modal-box .modal-buttons-div {
