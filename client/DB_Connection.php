@@ -1,6 +1,6 @@
 <?php
 // name of the service from docker-compose.yml -> "db"
-$server = "db";
+$server = "localhost:91";
 
 // database name
 $dbname = "CodingNotes";
