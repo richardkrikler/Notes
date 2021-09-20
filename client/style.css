@@ -3,6 +3,7 @@
   --grey-two: #D8D8D8;
   --grey-three: #BCBCBC;
   --grey-four: #7E7E7E;
+  --grey-three-transparent: #bcbcbc79;
 }
 
 * {
@@ -10,6 +11,26 @@
   color: var(--grey-four);
   margin: 0;
   padding: 0;
+}
+
+/* General Elements */
+button {
+  background-color: var(--grey-two);
+  font-size: 11pt;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.05);
+}
+
+input[type=text] {
+  background-color: var(--grey-two);
+  border: none;
+  box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  outline: none;
 }
 
 /* Nav */
@@ -48,6 +69,52 @@ nav {
 
 .nav-icon i {
   font-size: 20pt;
+}
+
+/* Modal Box */
+.modal-box {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  background-color: var(--grey-three-transparent);
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-box .inner-modal-div {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px 35px;
+  background-color: var(--grey-one);
+  box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.05);
+}
+
+.modal-box .inner-modal-div h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-box .inner-modal-div input[type=text] {
+  width: calc(100% - 10px);
+  font-size: 21px;
+}
+
+.modal-box .modal-buttons-div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-box .modal-buttons-div button {
+  flex-grow: 1;
+  font-size: 12pt;
+}
+
+.modal-box.visible {
+  display: flex;
 }
 
 /* Main */
