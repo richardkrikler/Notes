@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: CodingNotesPW
     ports:
-      - 92:3306
+      - 91:3306
 
   php-apache:
     image: php_mysql-pdo
@@ -24,4 +24,4 @@ services:
       PMA_HOST: db
       PMA_PORT: 3306
     ports:
-      - 91:80
+      - 92:80
