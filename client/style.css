@@ -54,6 +54,10 @@ nav {
     gap: 15px;
 }
 
+.nav-left a {
+    text-decoration: none;
+}
+
 .vertical-divider {
     height: 100%;
     width: 2px;
@@ -145,14 +149,12 @@ main {
     flex-direction: column;
 }
 
-.folder-box p {
+.folder-box a {
     font-size: 20pt;
     text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
     text-overflow: ellipsis;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding: 15px 22px;
+    text-decoration: none;
 }
