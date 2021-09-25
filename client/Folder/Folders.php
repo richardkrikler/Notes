@@ -10,10 +10,15 @@ class Folders
 {
     private $folders;
 
+    public function __construct()
+    {
+        $this->folders = [];
+    }
+
     /**
-     * @return Folders
+     * @return array
      */
-    public function getFolders(): Folders
+    public function getFolders(): array
     {
         return $this->folders;
     }
@@ -41,7 +46,7 @@ class Folders
     {
         $result = '<ul id="folder-grid">';
         foreach ($this->folders as $folder) {
-            $result .= '<li class="folder-box"><p>' . $folder->getName() . '</p></li>';
+            $result .= '<li class="folder-box"><a href="viewer.php?folder=' . $folder->getPkFolderId() . '">' . $folder->getName() . '</a></li>';
         }
         $result .= '</ul>';
 
