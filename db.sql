@@ -29,3 +29,8 @@ VALUES ('SEW-4BI-HTL'),
 INSERT INTO notes (fk_pk_folder_id, title, content)
 VALUES (1, '2.SÜ: Einführung JS - 15.09.2021', '# 2.SÜ: Einführung JS - 15.09.2021');
 
+/* Get all Notes of a Folder */
+SELECT pk_note_id, title
+FROM notes
+WHERE fk_pk_folder_id = 1;
+
