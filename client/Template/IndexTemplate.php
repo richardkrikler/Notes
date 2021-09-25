@@ -25,7 +25,7 @@ class IndexTemplate
 <body>
 <nav>
     <div class="nav-left">
-        <h1>CodingNotes</h1>
+        <h1><a href="index.php">CodingNotes</a></h1>
         <div class="vertical-divider"></div>
         <div class="add-folder-icon nav-icon"><i class="fas fa-folder-plus"></i></div>
     </div>
