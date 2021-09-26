@@ -1,10 +1,10 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Template\IndexTemplate;
+namespace RichardKrikler\CodingNotes\Template;
 
 class ViewerTemplate
 {
-    static function render(string $main): string
+    static function render(string $main, string $folderName): string
     {
         $template_head = <<<TEMPLATE_HEAD
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ class ViewerTemplate
     <div class="nav-left">
         <h1><a href="index.php">CodingNotes</a></h1>
         <div class="vertical-divider"></div>
+        <h2>{$folderName}</h2>
     </div>
     <div class="nav-right">
         <div class="settings-menu-icon nav-icon"><i class="fas fa-cog"></i></div>
