@@ -41,12 +41,14 @@ TEMPLATE_HEAD;
 
 <div class="modal-box" id="add-folder-modal-box">
     <div class="inner-modal-div">
-        <h2>Add new Folder</h2>
-        <input type="text" name="folder_name" id="folder_name">
-        <div class="modal-buttons-div">
-            <button>Confirm</button>
-            <button class="cancel-modal-box">Cancel</button>
-        </div>
+        <form action="index.php" method="get">
+            <h2>Add new Folder</h2>
+            <input type="text" name="folder_name" id="folder_name">
+            <div class="modal-buttons-div">
+                <input type="submit" value="Confirm">
+                <input type="button" class="cancel-modal-box" value="Cancel">
+            </div>
+        </form>
     </div>
 </div>
 
