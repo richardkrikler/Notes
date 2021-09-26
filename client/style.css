@@ -14,7 +14,12 @@
 }
 
 /* General Elements */
-button {
+h2 {
+    font-weight: normal;
+}
+
+input[type=button],
+input[type=submit]{
     background-color: var(--grey-two);
     font-size: 11pt;
     border: none;
@@ -53,10 +58,6 @@ nav {
 
 .nav-left a {
     text-decoration: none;
-}
-
-.nav-left h2 {
-    font-weight: normal;
 }
 
 .vertical-divider {
