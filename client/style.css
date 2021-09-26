@@ -40,10 +40,7 @@ nav {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 13px;
-    padding-right: 13px;
+    padding: 10px 13px;
     margin-bottom: 40px;
     box-shadow: 0 -27px 36px 12px rgba(0, 0, 0, 0.75);
 }
@@ -56,6 +53,10 @@ nav {
 
 .nav-left a {
     text-decoration: none;
+}
+
+.nav-left h2 {
+    font-weight: normal;
 }
 
 .vertical-divider {
