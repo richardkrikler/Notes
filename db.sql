@@ -34,3 +34,8 @@ SELECT pk_note_id, title
 FROM notes
 WHERE fk_pk_folder_id = 1;
 
+/* Get pk & name of folder from note id */
+SELECT pk_folder_id, name
+FROM notes
+         INNER JOIN folders on fk_pk_folder_id = pk_folder_id
+WHERE fk_pk_folder_id = 1;
