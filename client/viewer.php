@@ -21,11 +21,18 @@ if (isset($_GET['folder'])) {
 } else if (isset($_GET['note'])) {
     $note_id = $_GET['note'];
     $folder = FoldersDB::getFolderFromNoteID($note_id);
+
 } else {
     header('Location: index.php');
 }
 
+$notes = NotesDB::getNotesFromFolderID($folder->getPkFolderId())->getUnorderedListHTML();
 
-$notes = NotesDB::getNotesFromFolderID($folder->getPkFolderId());
 
-print(ViewerTemplate::render($notes->getUnorderedListHTML(), $folder->getName()));
+$main = $notes;
+if ($note_id > 0) {
+    $main .= '<div id="content"></div>';
+    $main .= '<script>document.getElementById("content").innerHTML = marked("' . NotesDB::getContentFromID($note_id) . '")</script>';
+}
+
+print(ViewerTemplate::render($main, $folder->getName()));

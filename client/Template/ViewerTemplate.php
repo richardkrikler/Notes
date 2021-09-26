@@ -19,6 +19,7 @@ class ViewerTemplate
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
+    <script src="node_modules/marked/marked.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 

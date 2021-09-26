@@ -31,4 +31,23 @@ class NotesDB
             exit();
         }
     }
+
+    static function getContentFromID($note_id): string
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('SELECT content FROM notes WHERE pk_note_id = :note_id');
+            $stmt->bindParam(":note_id", $note_id, PDO::PARAM_INT);
+            $content = '';
+            if ($stmt->execute()) {
+                $content = $stmt->fetch()['content'];
+            }
+
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $content;
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
