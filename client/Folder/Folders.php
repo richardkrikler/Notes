@@ -1,8 +1,8 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Folder\Folders;
+namespace RichardKrikler\CodingNotes\Folder;
 
-use RichardKrikler\CodingNotes\Folder\Folder\Folder;
+use RichardKrikler\CodingNotes\Folder\Folder;
 
 require_once 'Folder.php';
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Template\IndexTemplate;
+namespace RichardKrikler\CodingNotes\Template;
 
 class IndexTemplate
 {
