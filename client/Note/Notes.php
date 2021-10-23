@@ -44,7 +44,7 @@ class Notes
     {
         $result = '<ul id="note-grid">';
         foreach ($this->notes as $note) {
-            $result .= '<li class="folder-box"><a href="viewer.php?note=' . $note->getPkNoteId() . '">' . $note->getName() . '</a></li>';
+            $result .= '<li class="folder-box"><a href="noteViewer.php?note=' . $note->getPkNoteId() . '">' . $note->getName() . '</a></li>';
         }
         $result .= '</ul>';
 

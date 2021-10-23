@@ -50,4 +50,23 @@ class NotesDB
             exit();
         }
     }
+
+    static function getTitleFromID($note_id): string
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('SELECT title FROM notes WHERE pk_note_id = :note_id');
+            $stmt->bindParam(":note_id", $note_id, PDO::PARAM_INT);
+            $title = '';
+            if ($stmt->execute()) {
+                $title = $stmt->fetch()['title'];
+            }
+
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $title;
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }

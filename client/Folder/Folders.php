@@ -46,7 +46,7 @@ class Folders
     {
         $result = '<ul id="folder-grid">';
         foreach ($this->folders as $folder) {
-            $result .= '<li class="folder-box"><a href="viewer.php?folder=' . $folder->getPkFolderId() . '">' . $folder->getName() . '</a></li>';
+            $result .= '<li class="folder-box"><a href="notesViewer.php?folder=' . $folder->getPkFolderId() . '">' . $folder->getName() . '</a></li>';
         }
         $result .= '</ul>';
 
