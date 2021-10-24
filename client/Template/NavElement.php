@@ -2,13 +2,13 @@
 
 namespace RichardKrikler\CodingNotes\Template;
 
-use RichardKrikler\CodingNotes\ModalBox\AddFolderModalBox;
+use RichardKrikler\CodingNotes\ModalBox\CreateFolderModalBox;
 use RichardKrikler\CodingNotes\Folder\Folder;
 use RichardKrikler\CodingNotes\Note\Note;
 
 require_once __DIR__ . '/../Folder/Folder.php';
 require_once __DIR__ . '/../Note/Note.php';
-require_once __DIR__ . '/../ModalBox/AddFolderModalBox.php';
+require_once __DIR__ . '/../ModalBox/CreateFolderModalBox.php';
 
 class NavElement
 {
@@ -41,26 +41,27 @@ class NavElement
 
     private function getDefaultElements(): string
     {
-        $addFolderModalBox = new AddFolderModalBox();
+        $createFolderModalBox = new CreateFolderModalBox();
         return <<<DEFAULT_NAV
-        <div class="add-folder-icon nav-icon"><i class="fas fa-folder-plus"></i>{$addFolderModalBox}</div>
+        <div class="create-folder-icon nav-icon"><i class="fas fa-folder-plus" data-bs-toggle="modal" data-bs-target="#create-folder-modal-box"></i>{$createFolderModalBox}</div>
 DEFAULT_NAV;
     }
 
     private function getFolderElements(): string
     {
         return <<<FOLDER_NAV
-        <h3 class="mb-0"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h3>
+        <h3 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder-open me-2"></i></div></a>{$this->folder->getName()}</h3>
         <div class="vertical-divider"></div>
+        <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
 FOLDER_NAV;
     }
 
     private function getNoteElements(): string
     {
         return <<<NOTE_NAV_ELEMENTS
-        <h3 class="mb-0"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h3>
+        <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder me-2"></i></div>{$this->folder->getName()}</a></h4>
         <div class="vertical-divider"></div>
-        <h3 class="mb-0">{$this->note->getName()}</h3>
+        <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$this->note->getPkNoteId()}"><div class="nav-icon"><i class="fas fa-file-alt me-2"></i></a></div>{$this->note->getName()}</h4>
 NOTE_NAV_ELEMENTS;
     }
 

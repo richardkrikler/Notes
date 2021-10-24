@@ -20,25 +20,25 @@ h2 {
     font-weight: normal;
 }
 
-input[type=button],
-input[type=submit] {
-    background-color: var(--grey-two);
-    font-size: 11pt;
-    border: none;
-    padding: 5px 10px;
-    margin: 5px 10px;
-    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);
-}
+/*input[type=button],*/
+/*input[type=submit] {*/
+/*    background-color: var(--grey-two);*/
+/*    font-size: 11pt;*/
+/*    border: none;*/
+/*    padding: 5px 10px;*/
+/*    margin: 5px 10px;*/
+/*    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);*/
+/*}*/
 
-input[type=text] {
-    background-color: var(--grey-two);
-    border: none;
-    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    outline: none;
-}
+/*input[type=text] {*/
+/*    background-color: var(--grey-two);*/
+/*    border: none;*/
+/*    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);*/
+/*    padding: 8px;*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 5px;*/
+/*    outline: none;*/
+/*}*/
 
 /* Nav */
 nav {
@@ -62,7 +62,7 @@ nav {
 
 .nav-icon {
     height: 100%;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     flex-direction: column;
 }

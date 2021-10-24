@@ -74,4 +74,18 @@ class FoldersDB
             exit();
         }
     }
+
+    static function createFolder($name): void
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('INSERT INTO folders (name) VALUE (:folder_name) ');
+            $stmt->bindParam(":folder_name", $name, PDO::PARAM_STR);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
