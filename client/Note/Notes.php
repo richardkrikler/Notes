@@ -42,11 +42,13 @@ class Notes
      */
     public function getUnorderedListHTML(): string
     {
-        $result = '<ul id="note-grid">';
+        $result = '<div class="container"><div id="folder-grid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 gap-5 justify-content-center">';
         foreach ($this->notes as $note) {
-            $result .= '<li class="folder-box"><a href="noteViewer.php?note=' . $note->getPkNoteId() . '">' . $note->getName() . '</a></li>';
+            $result .= '<div class="folder-box col d-flex justify-content-center flex-column bg-light rounded">
+                        <a class="text-center text-decoration-none h4 mb-0 px-2 py-2 fw-normal" href="noteViewer.php?note=' . $note->getPkNoteId() . '">' . $note->getName() . '</a>
+                        </div>';
         }
-        $result .= '</ul>';
+        $result .= '</div></div>';
 
         return $result;
     }

@@ -7,7 +7,6 @@
   "author": "Richard Krikler <kriklerrichard@outlook.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "showdown": "^1.9.1"
+    "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }

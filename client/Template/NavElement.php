@@ -2,11 +2,13 @@
 
 namespace RichardKrikler\CodingNotes\Template;
 
+use RichardKrikler\CodingNotes\ModalBox\AddFolderModalBox;
 use RichardKrikler\CodingNotes\Folder\Folder;
 use RichardKrikler\CodingNotes\Note\Note;
 
 require_once __DIR__ . '/../Folder/Folder.php';
 require_once __DIR__ . '/../Note/Note.php';
+require_once __DIR__ . '/../ModalBox/AddFolderModalBox.php';
 
 class NavElement
 {
@@ -32,24 +34,23 @@ class NavElement
             return $this->getNoteElements();
         } elseif (!empty($this->folder) && empty($this->note)) {
             return $this->getFolderElements();
-        }
-        else {
+        } else {
             return $this->getDefaultElements();
         }
     }
 
     private function getDefaultElements(): string
     {
+        $addFolderModalBox = new AddFolderModalBox();
         return <<<DEFAULT_NAV
-        <div class="add-folder-icon nav-icon"><i class="fas fa-folder-plus"></i></div>
+        <div class="add-folder-icon nav-icon"><i class="fas fa-folder-plus"></i>{$addFolderModalBox}</div>
 DEFAULT_NAV;
-
     }
 
     private function getFolderElements(): string
     {
         return <<<FOLDER_NAV
-        <h2><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h2>
+        <h3 class="mb-0"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h3>
         <div class="vertical-divider"></div>
 FOLDER_NAV;
     }
@@ -57,28 +58,25 @@ FOLDER_NAV;
     private function getNoteElements(): string
     {
         return <<<NOTE_NAV_ELEMENTS
-        <h2><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h2>
+        <h3 class="mb-0"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}">{$this->folder->getName()}</a></h3>
         <div class="vertical-divider"></div>
-        <h2>{$this->note->getName()}</h2>
+        <h3 class="mb-0">{$this->note->getName()}</h3>
 NOTE_NAV_ELEMENTS;
-
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return <<<NAV
-<nav>
-    <div class="nav-left">
-        <h1><a href="index.php">CodingNotes</a></h1>
+<nav class="w-100 shadow d-flex justify-content-between px-3 py-2 mb-4">
+    <div class="nav-left d-flex">
+        <h3 class="mb-0"><a href="index.php">CodingNotes</a></h3>
         <div class="vertical-divider"></div>
         {$this->getSpecificElements()}
     </div>
-    <div class="nav-right">
+    <div class="nav-right d-flex">
         <div class="settings-menu-icon nav-icon"><i class="fas fa-cog"></i></div>
     </div>
 </nav>
 NAV;
     }
 }
-
-;

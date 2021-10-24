@@ -9,17 +9,19 @@
 * {
     font-family: 'Helvetica Neue', sans-serif;
     color: var(--grey-four);
-    margin: 0;
-    padding: 0;
 }
 
 /* General Elements */
+a {
+    color: var(--grey-four) !important;
+}
+
 h2 {
     font-weight: normal;
 }
 
 input[type=button],
-input[type=submit]{
+input[type=submit] {
     background-color: var(--grey-two);
     font-size: 11pt;
     border: none;
@@ -40,19 +42,11 @@ input[type=text] {
 
 /* Nav */
 nav {
-    width: calc(100% - 26px);
     background-color: var(--grey-one);
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    padding: 10px 13px;
-    margin-bottom: 40px;
-    box-shadow: 0 -27px 36px 12px rgba(0, 0, 0, 0.75);
 }
 
 .nav-left,
 .nav-right {
-    display: flex;
     gap: 15px;
 }
 
@@ -79,84 +73,18 @@ nav {
 
 /* Modal Box */
 .modal-box {
-    height: 100%;
-    width: 100%;
     display: none;
-    position: absolute;
-    top: 0;
-    background-color: var(--grey-three-transparent);
-    justify-content: center;
-    flex-direction: column;
-}
-
-.modal-box .inner-modal-div {
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 25px 35px;
-    background-color: var(--grey-one);
-    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);
-}
-
-.modal-box .inner-modal-div h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.modal-box .inner-modal-div input[type=text] {
-    width: calc(100% - 10px);
-    font-size: 18px;
-}
-
-.modal-box .modal-buttons-div {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.modal-box .modal-buttons-div button {
-    flex-grow: 1;
-    font-size: 12pt;
-}
-
-.modal-box.visible {
-    display: flex;
 }
 
 /* Main */
-main {
-    margin-bottom: 20px;
-    padding-top: 90px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#folder-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
-    grid-gap: 40px;
-    justify-content: center;
-    padding: initial;
-}
-
 .folder-box {
     height: 100px;
     width: 200px;
-    background-color: var(--grey-one);
     box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .folder-box a {
-    font-size: 20pt;
-    text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
     text-overflow: ellipsis;
-    padding: 15px 22px;
-    text-decoration: none;
 }
