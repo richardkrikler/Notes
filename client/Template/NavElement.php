@@ -4,11 +4,13 @@ namespace RichardKrikler\CodingNotes\Template;
 
 use RichardKrikler\CodingNotes\ModalBox\CreateFolderModalBox;
 use RichardKrikler\CodingNotes\Folder\Folder;
+use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
 use RichardKrikler\CodingNotes\Note\Note;
 
 require_once __DIR__ . '/../Folder/Folder.php';
 require_once __DIR__ . '/../Note/Note.php';
 require_once __DIR__ . '/../ModalBox/CreateFolderModalBox.php';
+require_once __DIR__ . '/../ModalBox/CreateNoteModalBox.php';
 
 class NavElement
 {
@@ -43,16 +45,17 @@ class NavElement
     {
         $createFolderModalBox = new CreateFolderModalBox();
         return <<<DEFAULT_NAV
-        <div class="create-folder-icon nav-icon"><i class="fas fa-folder-plus" data-bs-toggle="modal" data-bs-target="#create-folder-modal-box"></i>{$createFolderModalBox}</div>
+        <div class="nav-icon"><i class="fas fa-folder-plus" data-bs-toggle="modal" data-bs-target="#create-folder-modal-box"></i>{$createFolderModalBox}</div>
 DEFAULT_NAV;
     }
 
     private function getFolderElements(): string
     {
+        $createNoteModalBox = new CreateNoteModalBox($this->folder->getPkFolderId());
         return <<<FOLDER_NAV
-        <h3 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder-open me-2"></i></div></a>{$this->folder->getName()}</h3>
+        <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder-open me-2"></i></div></a>{$this->folder->getName()}</h4>
         <div class="vertical-divider"></div>
-        <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
+        <div class="nav-icon"><i class="fas fa-file-signature" data-bs-toggle="modal" data-bs-target="#create-note-modal-box"></i>{$createNoteModalBox}</div>
 FOLDER_NAV;
     }
 

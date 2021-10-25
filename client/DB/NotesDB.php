@@ -69,4 +69,19 @@ class NotesDB
             exit();
         }
     }
+
+    static function createNote($folder_id, $title): void
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('INSERT INTO notes (fk_pk_folder_id, title, content) VALUE (:fk_pk_folder_id, :title, \'\') ');
+            $stmt->bindParam(":fk_pk_folder_id", $folder_id, PDO::PARAM_INT);
+            $stmt->bindParam(":title", $title, PDO::PARAM_STR);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
