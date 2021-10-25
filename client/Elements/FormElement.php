@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Template;
+namespace RichardKrikler\CodingNotes\Elements;
 
 class FormElement
 {

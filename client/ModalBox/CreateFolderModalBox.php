@@ -3,10 +3,10 @@
 namespace RichardKrikler\CodingNotes\ModalBox;
 
 use AbstractModalBox;
-use RichardKrikler\CodingNotes\Template\FormElement;
+use RichardKrikler\CodingNotes\Elements\FormElement;
 
 require_once 'AbstractModalBox.php';
-require_once __DIR__ . '/../Template/FormElement.php';
+require_once __DIR__ . '/../Elements/FormElement.php';
 
 class CreateFolderModalBox extends AbstractModalBox
 {

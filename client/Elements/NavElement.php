@@ -1,11 +1,11 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Template;
+namespace RichardKrikler\CodingNotes\Elements;
 
-use RichardKrikler\CodingNotes\ModalBox\CreateFolderModalBox;
-use RichardKrikler\CodingNotes\Folder\Folder;
-use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
 use RichardKrikler\CodingNotes\Note\Note;
+use RichardKrikler\CodingNotes\Folder\Folder;
+use RichardKrikler\CodingNotes\ModalBox\CreateFolderModalBox;
+use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
 
 require_once __DIR__ . '/../Folder/Folder.php';
 require_once __DIR__ . '/../Note/Note.php';
@@ -75,7 +75,7 @@ NOTE_NAV_ELEMENTS;
         return <<<NAV
 <nav class="w-100 shadow d-flex justify-content-between px-3 py-2 mb-4">
     <div class="nav-left d-flex">
-        <h3 class="mb-0"><a href="index.php">CodingNotes</a></h3>
+        <h3 class="mb-0"><a href="../index.php">CodingNotes</a></h3>
         <div class="vertical-divider"></div>
         {$this->getSpecificElements()}
     </div>
