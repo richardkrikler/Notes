@@ -2,9 +2,11 @@
 
 use RichardKrikler\CodingNotes\DB\FoldersDB;
 use RichardKrikler\CodingNotes\DB\NotesDB;
-use RichardKrikler\CodingNotes\Template\NotesViewerTemplate;
+use RichardKrikler\CodingNotes\Template\NavElement;
+use RichardKrikler\CodingNotes\Template\SiteTemplate;
 
-require_once 'Template/NotesViewerTemplate.php';
+require_once 'Template/SiteTemplate.php';
+require_once 'Template/NavElement.php';
 require_once 'Note/Notes.php';
 require_once 'DB/NotesDB.php';
 require_once 'DB/FoldersDB.php';
@@ -18,4 +20,4 @@ $folder = FoldersDB::getFolderFromID($_GET['folder']);
 
 $content = NotesDB::getNotesFromFolderID($folder->getPkFolderId())->getUnorderedListHTML();
 
-print(NotesViewerTemplate::render($folder, $content));
+print(SiteTemplate::render((new NavElement())->setFolder($folder), $content));

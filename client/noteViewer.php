@@ -3,9 +3,11 @@
 use RichardKrikler\CodingNotes\DB\FoldersDB;
 use RichardKrikler\CodingNotes\DB\NotesDB;
 use RichardKrikler\CodingNotes\Note\Note;
+use RichardKrikler\CodingNotes\Template\NavElement;
 use RichardKrikler\CodingNotes\Template\NoteViewerTemplate;
+use RichardKrikler\CodingNotes\Template\SiteTemplate;
 
-require_once 'Template/NoteViewerTemplate.php';
+require_once 'Template/SiteTemplate.php';
 require_once 'Template/NavElement.php';
 require_once 'Note/Notes.php';
 require_once 'DB/NotesDB.php';
@@ -31,4 +33,5 @@ document.write(html)
 </script>
 NOTE_CONTENT;
 
-print(NoteViewerTemplate::render($folder, $note, $content));
+
+print(SiteTemplate::render((new NavElement())->setFolderAndNote($folder, $note), $content));

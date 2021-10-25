@@ -55,7 +55,7 @@ DEFAULT_NAV;
         return <<<FOLDER_NAV
         <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder-open me-2"></i></div></a>{$this->folder->getName()}</h4>
         <div class="vertical-divider"></div>
-        <div class="nav-icon"><i class="fas fa-file-signature" data-bs-toggle="modal" data-bs-target="#create-note-modal-box"></i>{$createNoteModalBox}</div>
+        <div class="nav-icon"><i class="fas fa-plus-square" data-bs-toggle="modal" data-bs-target="#create-note-modal-box"></i>{$createNoteModalBox}</div>
 FOLDER_NAV;
     }
 
@@ -65,6 +65,8 @@ FOLDER_NAV;
         <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$this->folder->getPkFolderId()}"><div class="nav-icon"><i class="fas fa-folder me-2"></i></div>{$this->folder->getName()}</a></h4>
         <div class="vertical-divider"></div>
         <h4 class="mb-0 fw-normal"><a href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$this->note->getPkNoteId()}"><div class="nav-icon"><i class="fas fa-file-alt me-2"></i></a></div>{$this->note->getName()}</h4>
+        <div class="vertical-divider"></div>
+        <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
 NOTE_NAV_ELEMENTS;
     }
 
