@@ -96,7 +96,7 @@ NOTE_NAV_ELEMENTS;
     public function __toString(): string
     {
         return <<<NAV
-<nav class="position-fixed w-100 shadow d-flex justify-content-between px-3 py-2 mb-4">
+<nav class="w-100 shadow d-flex justify-content-between px-3 py-2">
     <div class="nav-left d-flex">
         <h3 class="mb-0"><a href="../index.php">Notes</a></h3>
         <div class="vertical-divider"></div>

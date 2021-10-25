@@ -23,6 +23,7 @@ $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($no
 
 $note_content = NotesDB::getContentFromID($note_id);
 $content = <<<NOTE_CONTENT
+<div class="container-lg pt-3 px-3">
 <script>
 showdown.setFlavor('github');
 const converter = new showdown.Converter({simplifiedAutoLink: true, tables: true}),
@@ -30,6 +31,7 @@ const converter = new showdown.Converter({simplifiedAutoLink: true, tables: true
     html      = converter.makeHtml(text)
 document.write(html)
 </script>
+</div>
 NOTE_CONTENT;
 
 

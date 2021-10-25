@@ -32,7 +32,7 @@ class SiteTemplate
 
 {$nav}
 
-<main class="w-100 mx-0 mt-5 px-3 pt-3 h-100 overflow-scroll">
+<main class="d-flex justify-content-center w-100 h-100 overflow-scroll">
 {$content}
 </main>
 

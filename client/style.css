@@ -34,6 +34,8 @@ h2 {
 
 .editor-area {
     font-family: Menlo, sans-serif;
+    resize: none;
+    background-color: transparent;
 }
 
 .editor-area:focus {

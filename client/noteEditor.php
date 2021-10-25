@@ -23,7 +23,7 @@ $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($no
 
 $note_content = NotesDB::getContentFromID($note_id);
 $content = <<<NOTE_CONTENT
-<textarea class="editor-area w-100 h-100 border-0">{$note_content}</textarea>
+<textarea class="editor-area container-lg h-100 px-3 pt-3 border-0">{$note_content}</textarea>
 NOTE_CONTENT;
 
 print(SiteTemplate::render((new NavElement())->setFolderAndNote($folder, $note), $content));
