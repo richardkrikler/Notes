@@ -9,8 +9,8 @@ use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
 
 require_once __DIR__ . '/../Folder/Folder.php';
 require_once __DIR__ . '/../Note/Note.php';
-require_once __DIR__ . '/../ModalBox/CreateFolderModalBox.php';
-require_once __DIR__ . '/../ModalBox/CreateNoteModalBox.php';
+require_once __DIR__ . '/ModalBox/CreateFolderModalBox.php';
+require_once __DIR__ . '/ModalBox/CreateNoteModalBox.php';
 
 class NavElement
 {

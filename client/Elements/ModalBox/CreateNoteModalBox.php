@@ -6,7 +6,7 @@ use AbstractModalBox;
 use RichardKrikler\CodingNotes\Elements\FormElement;
 
 require_once 'AbstractModalBox.php';
-require_once __DIR__ . '/../Elements/FormElement.php';
+require_once __DIR__ . '/../FormElement.php';
 
 class CreateNoteModalBox extends AbstractModalBox
 {
