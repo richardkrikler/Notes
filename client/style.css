@@ -11,6 +11,11 @@
     color: var(--grey-four);
 }
 
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
 /* General Elements */
 a {
     color: var(--grey-four) !important;
@@ -20,25 +25,20 @@ h2 {
     font-weight: normal;
 }
 
-/*input[type=button],*/
-/*input[type=submit] {*/
-/*    background-color: var(--grey-two);*/
-/*    font-size: 11pt;*/
-/*    border: none;*/
-/*    padding: 5px 10px;*/
-/*    margin: 5px 10px;*/
-/*    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);*/
-/*}*/
+.note-name,
+.folder-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
-/*input[type=text] {*/
-/*    background-color: var(--grey-two);*/
-/*    border: none;*/
-/*    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);*/
-/*    padding: 8px;*/
-/*    margin-top: 5px;*/
-/*    margin-bottom: 5px;*/
-/*    outline: none;*/
-/*}*/
+.editor-area {
+    font-family: Menlo, sans-serif;
+}
+
+.editor-area:focus {
+    outline: none;
+}
 
 /* Nav */
 nav {
@@ -48,6 +48,10 @@ nav {
 .nav-left,
 .nav-right {
     gap: 15px;
+}
+
+.nav-left {
+    width: 90%;
 }
 
 .nav-left a {
@@ -63,17 +67,11 @@ nav {
 .nav-icon {
     height: 100%;
     display: inline-flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .nav-icon i {
     font-size: 20pt;
-}
-
-/* Modal Box */
-.modal-box {
-    display: none;
+    align-self: center;
 }
 
 /* Main */
