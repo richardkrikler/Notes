@@ -88,3 +88,22 @@ nav {
     overflow-y: scroll;
     text-overflow: ellipsis;
 }
+
+/* note content / rendered */
+.note-content table,
+.note-content th,
+.note-content td {
+    border: 1px solid var(--grey-four);
+}
+
+.note-content th,
+.note-content td {
+    padding: 5px 10px;
+}
+
+/* Code Blocks */
+pre {
+    background-color: var(--grey-four);
+    box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
+    border-radius: .25rem ;
+}

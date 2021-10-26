@@ -4,18 +4,28 @@ namespace RichardKrikler\CodingNotes\Elements;
 
 class FormElement
 {
+    private $formId;
     private $action;
     private $method;
+    private $classes;
     private $content;
 
     /**
-     * @param $action
-     * @param $method
+     * @param string $formId
+     * @param string $action
+     * @param string $method
      */
-    public function __construct($action, $method)
+    public function __construct(string $formId, string $action, string $method)
     {
+        $this->formId = $formId;
         $this->action = $action;
         $this->method = $method;
+    }
+
+    public function addClasses(string $classes): FormElement
+    {
+        $this->classes .= $classes;
+        return $this;
     }
 
     public function addContent(string $content): FormElement
@@ -59,7 +69,7 @@ DROPDOWN;
     public function __toString(): string
     {
         return <<<FORM
-<form action="{$this->action}" method="{$this->method}">{$this->content}</form>
+<form id="{$this->formId}" action="{$this->action}" method="{$this->method}" class="{$this->classes}">{$this->content}</form>
 FORM;
     }
 }

@@ -86,4 +86,19 @@ class NotesDB
             exit();
         }
     }
+
+    static function saveNote($node_id, $content): void
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('UPDATE notes SET content = :content WHERE pk_note_id = :pk_note_id');
+            $stmt->bindParam(":pk_note_id", $node_id, PDO::PARAM_INT);
+            $stmt->bindParam(":content", $content, PDO::PARAM_STR);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }

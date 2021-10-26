@@ -22,6 +22,6 @@ class CreateFolderModalBox extends AbstractModalBox
 
     public function __toString(): string
     {
-        return (new FormElement('Folder/CreateFolder.php', 'get'))->addContent($this->getModalBox());
+        return (new FormElement('create-folder-form', 'Folder/CreateFolder.php', 'get'))->addContent($this->getModalBox());
     }
 }

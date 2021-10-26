@@ -2,8 +2,6 @@
 
 namespace RichardKrikler\CodingNotes\Elements;
 
-use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
-
 require_once 'AbstractNav.php';
 require_once __DIR__ . '/../ModalBox/CreateNoteModalBox.php';
 
@@ -11,7 +9,11 @@ class NoteEditorNav extends AbstractNav
 {
     public function __construct($folder, $note)
     {
-        $createNoteModalBox = new CreateNoteModalBox($folder->getPkFolderId());
+        $saveNoteFrom = (new FormElement('save-form', '/Note/SaveNote.php', 'get'))
+            ->addClasses('d-flex')
+            ->addContent(FormElement::getHiddenInputElement('note', $note->getPkNoteId()))
+            ->addContent('<button type="submit" class="border-0 bg-transparent"><div class="nav-icon"><i class="fas fa-save"></i></div></button>');
+
         parent::addContent(<<<NOTE_NAV
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
@@ -32,9 +34,8 @@ class NoteEditorNav extends AbstractNav
         </h4>
         
         <div class="vertical-divider"></div>
-        <a class="" href="http://{$_SERVER["HTTP_HOST"]}/noteEditor.php?note={$note->getPkNoteId()}">
-            <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
-        </a>
+        
+        {$saveNoteFrom}
 NOTE_NAV
         );
     }

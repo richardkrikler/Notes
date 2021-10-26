@@ -23,6 +23,6 @@ class CreateNoteModalBox extends AbstractModalBox
 
     public function __toString(): string
     {
-        return (new FormElement('Note/CreateNote.php', 'get'))->addContent($this->getModalBox());
+        return (new FormElement('create-note-form', 'Note/CreateNote.php', 'get'))->addContent($this->getModalBox());
     }
 }
