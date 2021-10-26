@@ -7,6 +7,8 @@ use PDOException;
 use RichardKrikler\CodingNotes\Note\Note;
 use RichardKrikler\CodingNotes\Note\Notes;
 
+require_once __DIR__ . '/../Note/Note.php';
+require_once __DIR__ . '/../Note/Notes.php';
 require_once 'DB.php';
 
 class NotesDB

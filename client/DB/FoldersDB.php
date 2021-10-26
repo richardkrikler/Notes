@@ -8,8 +8,8 @@ use RichardKrikler\CodingNotes\Folder\Folder;
 use RichardKrikler\CodingNotes\Folder\Folders;
 
 require_once 'DB.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Folder/Folders.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Folder/Folder.php';
+require_once __DIR__ . '/../Folder/Folders.php';
+require_once __DIR__ . '/../Folder/Folder.php';
 
 class FoldersDB
 {
