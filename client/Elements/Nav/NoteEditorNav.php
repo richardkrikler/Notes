@@ -36,6 +36,10 @@ class NoteEditorNav extends AbstractNav
         <div class="vertical-divider"></div>
         
         {$saveNoteFrom}
+        
+        <div class="vertical-divider"></div>
+
+        <div class="nav-icon" onclick="contentTextarea.insertText('\\\`\\\`\\\`', '\\n\\n\\\`\\\`\\\`')"><i class="fas fa-code"></i></div>
 NOTE_NAV
         );
     }
