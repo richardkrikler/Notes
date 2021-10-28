@@ -14,7 +14,7 @@ services:
     ports:
       - 90:80
     volumes:
-      - ./client:/var/www/html/
+      - ./src:/var/www/html/
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
