@@ -21,7 +21,7 @@ $note_id = $_GET['note'];
 $folder = FoldersDB::getFolderFromNoteID($note_id);
 $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($note_id));
 
-$note_content = NotesDB::getContentFromID($note_id);
+$note_content = str_replace("```", "\`\`\`", NotesDB::getContentFromID($note_id));
 $content = <<<NOTE_CONTENT
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.js" integrity="sha512-bvV1V1YSjP1fbfKJjTlNmdnUO2XpsLYUdKwmz5UXBi5U+x40rx9JpA0ooQUMZfpz1MaaBC0ydNLoC6r0sitPUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet"
@@ -42,7 +42,6 @@ const converter = new showdown.Converter({simplifiedAutoLink: true, tables: true
     text      = `{$note_content}`,
     html      = converter.makeHtml(text)
 document.write(html)
-
 
 </script>
 </div>
