@@ -1,0 +1,110 @@
+:root {
+    --grey-one: #F5F5F5;
+    --grey-two: #D8D8D8;
+    --grey-three: #BCBCBC;
+    --grey-four: #7E7E7E;
+    --grey-three-transparent: #bcbcbc6b;
+}
+
+* {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--grey-four);
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* General Elements */
+a {
+    color: var(--grey-four) !important;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+.note-name,
+.folder-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.editor-area {
+    font-family: Menlo, sans-serif;
+    font-size: 11.5pt;
+    resize: none;
+    background-color: transparent;
+}
+
+.editor-area:focus {
+    outline: none;
+}
+
+/* Nav */
+nav {
+    background-color: var(--grey-one);
+}
+
+.nav-left,
+.nav-right {
+    gap: 15px;
+}
+
+.nav-left {
+    width: 90%;
+}
+
+.nav-left a {
+    text-decoration: none;
+}
+
+.vertical-divider {
+    height: 100%;
+    width: 2px;
+    background-color: var(--grey-three);
+}
+
+.nav-icon {
+    height: 100%;
+    display: inline-flex;
+}
+
+.nav-icon i {
+    font-size: 20pt;
+    align-self: center;
+}
+
+/* Main */
+.folder-box {
+    height: 100px;
+    width: 200px;
+    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+.folder-box a {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+}
+
+/* note content / rendered */
+.note-content table,
+.note-content th,
+.note-content td {
+    border: 1px solid var(--grey-four);
+}
+
+.note-content th,
+.note-content td {
+    padding: 5px 10px;
+}
+
+/* Code Blocks */
+pre {
+    background-color: var(--grey-four);
+    box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
+    border-radius: .25rem ;
+}
