@@ -25,6 +25,11 @@ INSERT INTO folders (name)
 VALUES ('SEW-4BI-HTL'),
        ('MEDT-WEBT-4BI-HTL');
 
+/* Alter Folder Name */
+UPDATE folders
+SET name = 'no'
+WHERE pk_folder_id = 1;
+
 /* Insert Notes */
 INSERT INTO notes (fk_pk_folder_id, title, content)
 VALUES (1, '2.SÜ: Einführung JS - 15.09.2021', '# 2.SÜ: Einführung JS - 15.09.2021');

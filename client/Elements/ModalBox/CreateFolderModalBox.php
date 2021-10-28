@@ -15,7 +15,7 @@ class CreateFolderModalBox extends AbstractModalBox
         parent::__construct(
             'create-folder-modal-box',
             'Create new Folder',
-            FormElement::getInputElement('folder-name', 'name', 'Folder Name')
+            FormElement::getInputElement('folder-name', 'name', 'Folder Name', '', '')
         );
         $this->setFooterConfirmCancel();
     }

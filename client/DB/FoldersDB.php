@@ -79,7 +79,22 @@ class FoldersDB
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('INSERT INTO folders (name) VALUE (:name) ');
+            $stmt = $DB->prepare('INSERT INTO folders (name) VALUE (:name)');
+            $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
+
+    public static function renameFolder($folder_id, $name): void
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('UPDATE folders SET name = :name WHERE pk_folder_id = :folder_id');
+            $stmt->bindParam(":folder_id", $folder_id, PDO::PARAM_INT);
             $stmt->bindParam(":name", $name, PDO::PARAM_STR);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

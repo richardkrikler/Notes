@@ -34,12 +34,12 @@ class FormElement
         return $this;
     }
 
-    public static function getInputElement(string $inputId, string $inputName, string $inputLabel): string
+    public static function getInputElement(string $inputId, string $inputName, string $inputLabel, string $inputValue, string $inputPlaceholder): string
     {
         return <<<INPUT
 <div class="mb-3">
     <label for="{$inputId}" class="form-label">{$inputLabel}</label>
-    <input id="{$inputId}" name="{$inputName}" class="form-control" required>
+    <input id="{$inputId}" name="{$inputName}" class="form-control" required placeholder="{$inputPlaceholder}" value="{$inputValue}">
 </div>
 INPUT;
     }

@@ -8,14 +8,14 @@ use RichardKrikler\CodingNotes\Elements\FormElement;
 require_once 'AbstractModalBox.php';
 require_once __DIR__ . '/../FormElement.php';
 
-class CreateNoteModalBox extends AbstractModalBox
+class RenameFolderModalBox extends AbstractModalBox
 {
-    public function __construct(int $folderId)
+    public function __construct(int $folderId, $folderName)
     {
         parent::__construct(
-            'create-note-modal-box',
-            'Create new Note',
-            FormElement::getInputElement('note-title', 'title', 'Note Title', '', '').
+            'rename-folder-modal-box',
+            'Rename Folder',
+            FormElement::getInputElement('folder-name', 'name', 'Folder Name', $folderName, $folderName) .
             FormElement::getHiddenInputElement('folder_id', $folderId)
         );
         $this->setFooterConfirmCancel();
@@ -23,6 +23,6 @@ class CreateNoteModalBox extends AbstractModalBox
 
     public function __toString(): string
     {
-        return (new FormElement('create-note-form', 'Note/CreateNote.php', 'get'))->addContent($this->getModalBox());
+        return (new FormElement('rename-folder-form', 'Folder/RenameFolder.php', 'get'))->addContent($this->getModalBox());
     }
 }
