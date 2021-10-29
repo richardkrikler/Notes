@@ -30,7 +30,7 @@ $content = <<<NOTE_CONTENT
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<div class="note-content container-lg pt-4 px-3">
+<div class="note-content container-lg pt-5 mb-5 px-3">
 <script>
 showdown.setFlavor('github')
 showdown.setOption('simplifiedAutoLink', true)

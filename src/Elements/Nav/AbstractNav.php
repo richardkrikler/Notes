@@ -26,7 +26,7 @@ abstract class AbstractNav
         {$this->content}
     </div>
     <div class="nav-right d-flex ms-2">
-        <a href="/settings.php"><div class="settings-menu-icon nav-icon"><i class="fas fa-cog"></i></div></a>
+        <a href="/settings.php" class="text-decoration-none"><div class="settings-menu-icon nav-icon"><i class="fas fa-cog"></i></div></a>
     </div>
 </nav>
 NAV;
