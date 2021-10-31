@@ -19,7 +19,7 @@ abstract class AbstractNav
     public function __toString(): string
     {
         return <<<NAV
-<nav class="w-100 shadow d-flex justify-content-between px-3 py-2">
+<nav class="w-100 d-flex justify-content-between px-3 py-2">
     <div class="nav-left d-flex">
         <h3 class="mb-0"><a href="/index.php">Notes</a></h3>
         <div class="vertical-divider"></div>

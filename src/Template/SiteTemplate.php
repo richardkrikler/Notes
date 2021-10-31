@@ -2,10 +2,15 @@
 
 namespace RichardKrikler\CodingNotes\Template;
 
+use RichardKrikler\CodingNotes\DB\SettingsDB;
+
+require_once __DIR__ . '/../DB/SettingsDB.php';
+
 class SiteTemplate
 {
     static function render(string $nav, string $content): string
     {
+        $themeSetting = SettingsDB::getStateSetting(1);
         return <<<TEMPLATE
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +30,7 @@ class SiteTemplate
     <script src="script.js" defer></script>
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column" theme-mode="{$themeSetting}">
 
 {$nav}
 

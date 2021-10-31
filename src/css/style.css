@@ -1,14 +1,20 @@
 :root {
-    --grey-one: #F5F5F5;
-    --grey-two: #D8D8D8;
-    --grey-three: #BCBCBC;
-    --grey-four: #7E7E7E;
-    --grey-three-transparent: #bcbcbc6b;
+    --light-text: #24292F;
+    --light-one: #F6F8FA;
+    --light-two: #D0D7DE;
+    --light-three: #BCBCBC;
+    --light-four: #30363D;
+    --dark-text: #F0F6FC;
+    --dark-one: #30363D;
+    --dark-two: #21262D;
+    --dark-three: #161B22;
+    --dark-four: #0D1117;
+    --dark-five: #010409;
 }
 
 * {
-    font-family: 'Helvetica Neue', sans-serif;
-    color: var(--grey-four);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--light-text);
 }
 
 body {
@@ -18,7 +24,7 @@ body {
 
 /* General Elements */
 a {
-    color: var(--grey-four) !important;
+    color: var(--light-text) !important;
 }
 
 h2 {
@@ -32,8 +38,12 @@ h2 {
     text-overflow: ellipsis;
 }
 
+.folder-box {
+    background-color: var(--light-one);
+}
+
 .editor-area {
-    font-family: Menlo, sans-serif;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     font-size: 11.5pt;
     resize: none;
     background-color: transparent;
@@ -45,7 +55,8 @@ h2 {
 
 /* Nav */
 nav {
-    background-color: var(--grey-one);
+    background-color: var(--light-one);
+    border-bottom: 1px solid var(--light-two);
 }
 
 .nav-left,
@@ -64,7 +75,7 @@ nav {
 .vertical-divider {
     height: 100%;
     width: 2px;
-    background-color: var(--grey-three);
+    background-color: var(--light-text);
 }
 
 .nav-icon {
@@ -81,7 +92,7 @@ nav {
 .folder-box {
     height: 100px;
     width: 200px;
-    box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--light-two);
 }
 
 .folder-box a {
@@ -94,7 +105,7 @@ nav {
 .note-content table,
 .note-content th,
 .note-content td {
-    border: 1px solid var(--grey-four);
+    border: 1px solid var(--light-two);
 }
 
 .note-content th,
@@ -104,7 +115,62 @@ nav {
 
 /* Code Blocks */
 pre {
-    background-color: var(--grey-four);
-    box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
-    border-radius: .25rem ;
+    border-radius: .25rem;
+    border: 1px solid var(--light-two);
+}
+
+pre code * {
+    font-weight: inherit !important;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
+}
+
+
+/* Theme-Mode */
+body[theme-mode='2'],
+body[theme-mode='2'] .modal-content {
+    background-color: var(--dark-four);
+}
+
+body[theme-mode='2'] * :not(pre code *) {
+    color: var(--dark-text) !important;
+}
+
+body[theme-mode='2'] .modal-dialog .modal-header {
+    border-bottom-color: var(--dark-one);
+}
+
+body[theme-mode='2'] .modal-dialog .modal-footer {
+    border-top-color: var(--dark-one);
+}
+
+body[theme-mode='2'] nav {
+    background-color: var(--dark-three);
+    border-bottom-color: var(--dark-one);
+}
+
+body[theme-mode='2'] .vertical-divider {
+    background-color: var(--dark-text);
+}
+
+body[theme-mode='2'] .folder-box {
+    background-color: var(--dark-three);
+    border-color: var(--dark-one);
+}
+
+body[theme-mode='2'] pre {
+    border-color: var(--dark-one);
+}
+
+body[theme-mode='2'] pre code {
+    background-color: var(--dark-three);
+}
+
+body[theme-mode='2'] input {
+    background-color: var(--dark-five);
+    border-color: var(--dark-one);
+}
+
+body[theme-mode='2'] select {
+    background-color: var(--dark-two);
+    border-color: var(--dark-one);
 }

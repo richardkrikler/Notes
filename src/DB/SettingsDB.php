@@ -13,11 +13,11 @@ class SettingsDB
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT state FROM state_settings WHERE pk_state_setting_id = :setting_id');
+            $stmt = $DB->prepare('SELECT option_number FROM options_state_settings WHERE fk_pk_state_setting_id = :setting_id AND active_state = true');
             $stmt->bindParam(":setting_id", $setting_id, PDO::PARAM_INT);
             $state = '';
             if ($stmt->execute()) {
-                $state = $stmt->fetch()['state'];
+                $state = $stmt->fetch()['option_number'];
             }
 
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
