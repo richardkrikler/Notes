@@ -88,6 +88,10 @@ nav {
     align-self: center;
 }
 
+nav .dropdown-toggle::after {
+    display: none;
+}
+
 /* Main */
 .folder-box {
     height: 100px;
@@ -173,4 +177,17 @@ body[theme-mode='2'] input {
 body[theme-mode='2'] select {
     background-color: var(--dark-two);
     border-color: var(--dark-one);
+}
+
+body[theme-mode='2'] .dropdown-menu {
+    background-color: var(--dark-two);
+    border-color: var(--dark-one);
+}
+
+body[theme-mode='2'] .dropdown-menu input {
+    background-color: var(--dark-two);
+}
+
+body[theme-mode='2'] .dropdown-menu *:hover {
+    background-color: var(--dark-one);
 }
