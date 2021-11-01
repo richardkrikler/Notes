@@ -43,4 +43,26 @@ class SettingsDB
             exit();
         }
     }
+
+    static function getOptionsStateSetting($settingId): array
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('SELECT option_number, option_value, active_state FROM options_state_settings WHERE fk_pk_state_setting_id = :settingId');
+            $stmt->bindParam(":settingId", $settingId, PDO::PARAM_INT);
+            $options = [];
+
+            if ($stmt->execute()) {
+                while ($row = $stmt->fetch()) {
+                    $options[] = [$row['option_number'], $row['option_value'], $row['active_state']];
+                }
+            }
+
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $options;
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }

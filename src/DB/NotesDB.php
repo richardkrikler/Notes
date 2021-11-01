@@ -78,7 +78,7 @@ class NotesDB
         try {
             $stmt = $DB->prepare('INSERT INTO notes (fk_pk_folder_id, title, content) VALUE (:fkPkFolderId, :title, \'\') ');
             $stmt->bindParam(":fkPkFolderId", $folderId, PDO::PARAM_INT);
-            $stmt->bindParam(":title", $title, PDO::PARAM_STR);
+            $stmt->bindParam(":title", $title);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
