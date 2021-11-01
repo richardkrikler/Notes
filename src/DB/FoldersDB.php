@@ -33,12 +33,12 @@ class FoldersDB
         return $folders;
     }
 
-    static function getFolderFromID($folder_id): Folder
+    static function getFolderFromID($folderId): Folder
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM folders WHERE pk_folder_id = :folder_id');
-            $stmt->bindParam(":folder_id", $folder_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM folders WHERE pk_folder_id = :folderId');
+            $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
             $folder = new Folder();
             if ($stmt->execute()) {
                 $row = $stmt->fetch();
@@ -54,12 +54,12 @@ class FoldersDB
         }
     }
 
-    static function getFolderFromNoteID($note_id): Folder
+    static function getFolderFromNoteID($noteId): Folder
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM notes INNER JOIN folders on fk_pk_folder_id = pk_folder_id WHERE pk_note_id = :note_id');
-            $stmt->bindParam(":note_id", $note_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM notes INNER JOIN folders on fk_pk_folder_id = pk_folder_id WHERE pk_note_id = :noteId');
+            $stmt->bindParam(":noteId", $noteId, PDO::PARAM_INT);
             $folder = new Folder();
             if ($stmt->execute()) {
                 $row = $stmt->fetch();
@@ -89,12 +89,12 @@ class FoldersDB
         }
     }
 
-    public static function renameFolder($folder_id, $name): void
+    public static function renameFolder($folderId, $name): void
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('UPDATE folders SET name = :name WHERE pk_folder_id = :folder_id');
-            $stmt->bindParam(":folder_id", $folder_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('UPDATE folders SET name = :name WHERE pk_folder_id = :folderId');
+            $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
             $stmt->bindParam(":name", $name, PDO::PARAM_STR);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

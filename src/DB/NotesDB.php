@@ -13,12 +13,12 @@ require_once 'DB.php';
 
 class NotesDB
 {
-    static function getNotesFromFolderID($folder_id): Notes
+    static function getNotesFromFolderID($folderId): Notes
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT pk_note_id, fk_pk_folder_id, title FROM notes WHERE fk_pk_folder_id = :folder_id');
-            $stmt->bindParam(":folder_id", $folder_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('SELECT pk_note_id, fk_pk_folder_id, title FROM notes WHERE fk_pk_folder_id = :folderId');
+            $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
             $notes = new Notes();
             if ($stmt->execute()) {
                 while ($row = $stmt->fetch()) {
@@ -34,12 +34,12 @@ class NotesDB
         }
     }
 
-    static function getContentFromID($note_id): string
+    static function getContentFromID($noteId): string
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT content FROM notes WHERE pk_note_id = :note_id');
-            $stmt->bindParam(":note_id", $note_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('SELECT content FROM notes WHERE pk_note_id = :noteId');
+            $stmt->bindParam(":noteId", $noteId, PDO::PARAM_INT);
             $content = '';
             if ($stmt->execute()) {
                 $content = $stmt->fetch()['content'];
@@ -53,12 +53,12 @@ class NotesDB
         }
     }
 
-    static function getTitleFromID($note_id): string
+    static function getTitleFromID($noteId): string
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('SELECT title FROM notes WHERE pk_note_id = :note_id');
-            $stmt->bindParam(":note_id", $note_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('SELECT title FROM notes WHERE pk_note_id = :noteId');
+            $stmt->bindParam(":noteId", $noteId, PDO::PARAM_INT);
             $title = '';
             if ($stmt->execute()) {
                 $title = $stmt->fetch()['title'];
@@ -72,12 +72,12 @@ class NotesDB
         }
     }
 
-    static function createNote($folder_id, $title): void
+    static function createNote($folderId, $title): void
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('INSERT INTO notes (fk_pk_folder_id, title, content) VALUE (:fk_pk_folder_id, :title, \'\') ');
-            $stmt->bindParam(":fk_pk_folder_id", $folder_id, PDO::PARAM_INT);
+            $stmt = $DB->prepare('INSERT INTO notes (fk_pk_folder_id, title, content) VALUE (:fkPkFolderId, :title, \'\') ');
+            $stmt->bindParam(":fkPkFolderId", $folderId, PDO::PARAM_INT);
             $stmt->bindParam(":title", $title, PDO::PARAM_STR);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -87,13 +87,13 @@ class NotesDB
         }
     }
 
-    static function saveNote($node_id, $content): void
+    static function saveNote($noteId, $content): void
     {
         $DB = DB::getDB();
         try {
-            $stmt = $DB->prepare('UPDATE notes SET content = :content WHERE pk_note_id = :pk_note_id');
-            $stmt->bindParam(":pk_note_id", $node_id, PDO::PARAM_INT);
-            $stmt->bindParam(":content", $content, PDO::PARAM_STR);
+            $stmt = $DB->prepare('UPDATE notes SET content = :content WHERE pk_note_id = :pkNoteId');
+            $stmt->bindParam(":pkNoteId", $noteId, PDO::PARAM_INT);
+            $stmt->bindParam(":content", $content);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
