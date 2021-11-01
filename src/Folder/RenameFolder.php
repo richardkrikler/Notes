@@ -6,7 +6,7 @@ use RichardKrikler\CodingNotes\DB\FoldersDB;
 
 require_once __DIR__ . '/../DB/FoldersDB.php';
 
-if (isset($_GET['folder_id']) && isset($_GET['name'])) {
-    FoldersDB::renameFolder($_GET['folder_id'], $_GET['name']);
+if (isset($_GET['folderId']) && isset($_GET['name'])) {
+    FoldersDB::renameFolder($_GET['folderId'], $_GET['name']);
 }
-header('Location: /notesViewer.php?folder=' . $_GET['folder_id']);
+header('Location: /notesViewer.php?folder=' . $_GET['folderId']);

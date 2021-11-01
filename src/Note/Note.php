@@ -4,19 +4,19 @@ namespace RichardKrikler\CodingNotes\Note;
 
 class Note
 {
-    private $pk_note_id;
-    private $fk_pk_folder_id;
+    private $pkNoteId;
+    private $fkPkFolderId;
     private $name;
 
     /**
-     * @param int $pk_note_id
-     * @param int $fk_pk_folder_id
+     * @param int $pkNoteId
+     * @param int $fkPkFolderId
      * @param string $name
      */
-    public function __construct(int $pk_note_id, int $fk_pk_folder_id, string $name)
+    public function __construct(int $pkNoteId, int $fkPkFolderId, string $name)
     {
-        $this->pk_note_id = $pk_note_id;
-        $this->fk_pk_folder_id = $fk_pk_folder_id;
+        $this->pkNoteId = $pkNoteId;
+        $this->fkPkFolderId = $fkPkFolderId;
         $this->name = $name;
     }
 
@@ -25,7 +25,7 @@ class Note
      */
     public function getPkNoteId(): int
     {
-        return $this->pk_note_id;
+        return $this->pkNoteId;
     }
 
     /**
@@ -33,7 +33,7 @@ class Note
      */
     public function getFkPkFolderId(): int
     {
-        return $this->fk_pk_folder_id;
+        return $this->fkPkFolderId;
     }
 
     /**

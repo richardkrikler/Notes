@@ -4,16 +4,16 @@ namespace RichardKrikler\CodingNotes\Folder;
 
 class Folder
 {
-    private $pk_folder_id;
+    private $pkFolderId;
     private $name;
 
     /**
-     * @param int $pk_folder_id
+     * @param int $pkFolderId
      * @param string $name
      */
-    public function __construct(int $pk_folder_id = 0, string $name = '')
+    public function __construct(int $pkFolderId = 0, string $name = '')
     {
-        $this->pk_folder_id = $pk_folder_id;
+        $this->pkFolderId = $pkFolderId;
         $this->name = $name;
     }
 
@@ -38,14 +38,14 @@ class Folder
      */
     public function getPkFolderId(): int
     {
-        return $this->pk_folder_id;
+        return $this->pkFolderId;
     }
 
     /**
-     * @param int $pk_folder_id
+     * @param int $pkFolderId
      */
-    public function setPkFolderId(int $pk_folder_id)
+    public function setPkFolderId(int $pkFolderId)
     {
-        $this->pk_folder_id = $pk_folder_id;
+        $this->pkFolderId = $pkFolderId;
     }
 }

@@ -16,7 +16,7 @@ class RenameFolderModalBox extends AbstractModalBox
             'rename-folder-modal-box',
             'Rename Folder',
             FormElement::getInputElement('folder-name', 'name', 'Folder Name', $folderName, $folderName) .
-            FormElement::getHiddenInputElement('folder_id', $folderId)
+            FormElement::getHiddenInputElement('folderId', $folderId)
         );
         $this->setFooterConfirmCancel();
     }
