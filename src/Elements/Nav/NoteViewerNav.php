@@ -9,6 +9,7 @@ class NoteViewerNav extends AbstractNav
 {
     public function __construct($folder, $note)
     {
+        parent::__construct();
         parent::addContent(<<<NOTE_NAV
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">

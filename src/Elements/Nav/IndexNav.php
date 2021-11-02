@@ -11,6 +11,7 @@ class IndexNav extends AbstractNav
 {
     public function __construct()
     {
+        parent::__construct();
         $createFolderModalBox = new CreateFolderModalBox();
         parent::addContent(<<<NOTES_NAV
         <div class="nav-icon">

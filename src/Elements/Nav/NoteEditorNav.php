@@ -9,6 +9,7 @@ class NoteEditorNav extends AbstractNav
 {
     public function __construct($folder, $note)
     {
+        parent::__construct();
         $saveNoteFrom = (new FormElement('save-form', '/Note/SaveNote.php', 'get'))
             ->addClasses('d-flex')
             ->addContent(FormElement::getHiddenInputElement('note', $note->getPkNoteId()))
