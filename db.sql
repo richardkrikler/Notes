@@ -66,6 +66,15 @@ CREATE TABLE boolean_settings
     CONSTRAINT FOREIGN KEY (pk_boolean_setting_id) REFERENCES settings (pk_setting_id) ON DELETE CASCADE
 );
 
+CREATE TABLE files
+(
+    pk_file_id INTEGER      NOT NULL AUTO_INCREMENT,
+    name       VARCHAR(255) NOT NULL UNIQUE,
+    data       LONGBLOB     NOT NULL,
+    CONSTRAINT PRIMARY KEY (pk_file_id)
+);
+
+
 /* Insert Settings */
 INSERT INTO settings (pk_setting_id, title)
 VALUES (1, 'Theme Mode');
@@ -102,4 +111,5 @@ WHERE fk_pk_state_setting_id = 1;
 
 UPDATE options_state_settings
 SET active_state = true
-WHERE fk_pk_state_setting_id = 1 AND option_number = 1;
+WHERE fk_pk_state_setting_id = 1
+  AND option_number = 1;

@@ -13,6 +13,7 @@ class NotesViewerNav extends AbstractNav
 {
     public function __construct($folder)
     {
+        parent::__construct();
         $createNoteModalBox = new CreateNoteModalBox($folder->getPkFolderId());
         $renameNoteModalBox = new RenameFolderModalBox($folder->getPkFolderId(), $folder->getName());
         parent::addContent(<<<NOTES_NAV

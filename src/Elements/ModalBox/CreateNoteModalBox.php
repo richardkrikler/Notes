@@ -16,7 +16,7 @@ class CreateNoteModalBox extends AbstractModalBox
             'create-note-modal-box',
             'Create new Note',
             FormElement::getInputElement('note-title', 'title', 'Note Title', '', '').
-            FormElement::getHiddenInputElement('folder_id', $folderId)
+            FormElement::getHiddenInputElement('folderId', $folderId)
         );
         $this->setFooterConfirmCancel();
     }

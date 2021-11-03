@@ -80,7 +80,7 @@ class FoldersDB
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('INSERT INTO folders (name) VALUE (:name)');
-            $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+            $stmt->bindParam(":name", $name);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
@@ -95,7 +95,7 @@ class FoldersDB
         try {
             $stmt = $DB->prepare('UPDATE folders SET name = :name WHERE pk_folder_id = :folderId');
             $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
-            $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+            $stmt->bindParam(":name", $name);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
