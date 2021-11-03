@@ -23,7 +23,7 @@ $note_id = $_GET['note'];
 $folder = FoldersDB::getFolderFromNoteID($note_id);
 $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($note_id));
 
-$note_content = str_replace("```", "\`\`\`", NotesDB::getContentFromID($note_id));
+$note_content = NotesDB::getContentFromID($note_id);
 $themeMode = SettingsDB::getStateSetting(1);
 $highlightStyle = $themeMode == 1 ? 'github.css' : 'github-dark.css';
 $content = <<<NOTE_CONTENT
@@ -32,7 +32,9 @@ $content = <<<NOTE_CONTENT
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<div class="note-content container-lg pt-5 mb-5 px-3">
+<div class="note-content container-lg pt-5 mb-5 px-3" id="note-content">
+{$note_content}
+</div>
 <script>
 showdown.setFlavor('github')
 showdown.setOption('simplifiedAutoLink', true)
@@ -40,13 +42,19 @@ showdown.setOption('tables', true)
 showdown.setOption('ghMentions', true)
 showdown.setOption('tasklists', true)
 
-const converter = new showdown.Converter({simplifiedAutoLink: true, tables: true}),
-    text      = `{$note_content}`,
-    html      = converter.makeHtml(text)
-document.write(html)
+function unescapeHTML(text) {
+    return text.replace( /&amp;/g, "&" )
+	    .replace( /&lt;/g, "<" )
+		.replace( /&gt;/g, ">" )
+		.replace( /&quot;/g, "\"" )
+		.replace( /&#39;/g, "'" )
+}
+
+const noteContentElement = document.getElementById('note-content')
+const converter = new showdown.Converter()
+noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML))
 
 </script>
-</div>
 NOTE_CONTENT;
 
 
