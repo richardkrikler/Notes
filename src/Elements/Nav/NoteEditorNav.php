@@ -43,7 +43,7 @@ class NoteEditorNav extends AbstractNav
         <div class="nav-icon" onclick="contentTextarea.insertText('\\`\\`\\`\\n', '\\n\\`\\`\\`')"><i class="fas fa-code"></i></div>
 
         <div class="nav-icon dropdown-toggle" id="imageDropdownButton" role="button" data-bs-toggle="dropdown"><i class="fas fa-image"></i></div>
-        <ul class="dropdown-menu" aria-labelledby="imageDropdownButton">
+        <ul class="dropdown-menu py-0" aria-labelledby="imageDropdownButton">
             <li><input type="url" class="dropdown-item" placeholder="URL" id="imageUrlInput" onkeyup="saveFileFromUrl(event, value)"></li>
             <li><input type="file" class="py-1" onchange="saveFileFromInput(event)" id="testId"></li>
         </ul>
