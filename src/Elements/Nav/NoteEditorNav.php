@@ -31,7 +31,9 @@ class NoteEditorNav extends AbstractNav
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$note->getPkNoteId()}">
                 <i class="fas fa-file-alt me-2"></i>
             </a>
-            <p class="align-self-center mb-0">{$note->getName()}</p>
+            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$note->getPkNoteId()}">
+                <p class="align-self-center mb-0">{$note->getName()}</p>
+            </a>
         </h4>
         
         <div class="vertical-divider"></div>
