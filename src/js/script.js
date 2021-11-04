@@ -6,6 +6,16 @@ const contentTextarea = {
         oMsgInput.value = sOldText.substring(0, nSelStart) + (bDouble ? sStartTag + sOldText.substring(nSelStart, nSelEnd) + sEndTag : sStartTag) + sOldText.substring(nSelEnd)
         oMsgInput.setSelectionRange(bDouble || nSelStart === nSelEnd ? nSelStart + sStartTag.length : nSelStart, (bDouble ? nSelEnd : nSelStart) + sStartTag.length)
         oMsgInput.focus()
+    },
+    getSelectedText() {
+        const oMsgInput = this.element
+        return oMsgInput.value.substring(oMsgInput.selectionStart, oMsgInput.selectionEnd)
+    },
+    ifTextSelected() {
+        return this.element.selectionStart !== this.element.selectionEnd
+    },
+    insertAtKeyPressAfterSelection(sEndTag) {
+        contentTextarea.insertText('', contentTextarea.getSelectedText() + sEndTag)
     }
 }
 
@@ -65,7 +75,35 @@ async function saveFile(data) {
     });
 }
 
+const insertableElements = [['(', ')'], ['{', '}'], ['[', ']'], ['*', '*'], ['_', '_']]
 
-// if (!res.ok || !(new RegExp('image/*').test(res.headers.get('content-type')))) {
-//     return
-// }
+function editorHelper(event) {
+//    if (event.key.altKey && event.key === 'b') { // not working
+//        contentTextarea.insertText('*', '*')
+//        return
+//    }
+
+    if (contentTextarea.ifTextSelected()) {
+        insertableElements.forEach(e => {
+            if (event.key === e[0]) {
+                contentTextarea.insertAtKeyPressAfterSelection(e[1])
+            }
+        })
+    }
+}
+
+shortcut.add("Meta+Alt+K", function () {
+    contentTextarea.insertText('*', '*')
+}, {
+    'type': 'keydown',
+    'propagate': true,
+    'target': contentTextarea.element
+})
+
+shortcut.add("Meta+Alt+B", function () {
+    contentTextarea.insertText('**', '**')
+}, {
+    'type': 'keydown',
+    'propagate': true,
+    'target': contentTextarea.element
+})
