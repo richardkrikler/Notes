@@ -36,6 +36,12 @@ class NoteViewerNav extends AbstractNav
         <a class="" href="http://{$_SERVER["HTTP_HOST"]}/noteEditor.php?note={$note->getPkNoteId()}">
             <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
         </a>
+
+        <div class="nav-icon dropdown-toggle" id="exportDropdownButton" role="button" data-bs-toggle="dropdown"><i class="fas fa-external-link-alt"></i></div>
+        <ul class="dropdown-menu py-0" aria-labelledby="exportDropdownButton" style="min-width: 0">
+            <li><a href="notePrintViewer.php?note={$note->getPkNoteId()}"><div class="nav-icon d-flex justify-content-center p-2"><i class="fas fa-print"></i></div></a></li>
+            <li><a href="noteMarkdownDownload.php?note={$note->getPkNoteId()}"><div class="nav-icon p-2"><i class="fab fa-markdown"></i></div></a></li>
+        </ul>
 NOTE_NAV
         );
     }
