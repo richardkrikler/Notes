@@ -19,6 +19,16 @@ const contentTextarea = {
     }
 }
 
+window.addEventListener("beforeprint", function (event) {
+    if ((window.location.href).indexOf('?') !== -1) {
+        const queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1)
+        const queryStringAr = queryString.split('=')
+        if (queryStringAr[0] === 'note') {
+            window.location = '/notePrintViewer.php?note=' + queryStringAr[1]
+        }
+    }
+});
+
 async function updateStateSetting(settingId, optionNumber) {
     await fetch('Settings/UpdateStateSetting.php', {
         method: 'POST',
