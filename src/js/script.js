@@ -19,14 +19,18 @@ const contentTextarea = {
     }
 }
 
-window.addEventListener("beforeprint", function (event) {
+function getNoteId() {
     if ((window.location.href).indexOf('?') !== -1) {
         const queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1)
         const queryStringAr = queryString.split('=')
         if (queryStringAr[0] === 'note') {
-            window.location = '/notePrintViewer.php?note=' + queryStringAr[1]
+            return queryStringAr[1]
         }
     }
+}
+
+window.addEventListener("beforeprint", function (event) {
+    window.location = '/notePrintViewer.php?note=' + getNoteId()
 })
 
 async function updateStateSetting(settingId, optionNumber) {
@@ -35,6 +39,14 @@ async function updateStateSetting(settingId, optionNumber) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({settingId, optionNumber}),
     }).then(res => res.ok ? window.location.reload(true) : console.log('Error'))
+}
+
+async function saveNote() {
+    await fetch('Note/SaveNote.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({noteId: getNoteId(), content: contentTextarea.element.value}),
+    }).then(() => saveNoteBt.classList.remove('unsaved'))
 }
 
 async function saveFileFromUrl(event, value) {
@@ -85,9 +97,16 @@ async function saveFile(data) {
     })
 }
 
+const startPageTitle = document.title
+const saveNoteBt = document.getElementById('saveNote')
 const insertableElements = [['(', ')'], ['{', '}'], ['[', ']'], ['*', '*'], ['_', '_']]
+const modifierKeys = ['Ctrl', 'Alt', 'Shift', 'Meta']
 
 function editorHelper(event) {
+    if (!modifierKeys.includes(event.key)) {
+        saveNoteBt.classList.add('unsaved');
+    }
+
 //    if (event.key.altKey && event.key === 'b') { // not working
 //        contentTextarea.insertText('*', '*')
 //        return
@@ -105,7 +124,6 @@ function editorHelper(event) {
 shortcut.add("Meta+Alt+K", function () {
     contentTextarea.insertText('*', '*')
 }, {
-    'type': 'keydown',
     'propagate': true,
     'target': contentTextarea.element
 })
@@ -113,7 +131,13 @@ shortcut.add("Meta+Alt+K", function () {
 shortcut.add("Meta+Alt+B", function () {
     contentTextarea.insertText('**', '**')
 }, {
-    'type': 'keydown',
+    'propagate': true,
+    'target': contentTextarea.element
+})
+
+shortcut.add("Meta+Alt+S", async function () {
+    await saveNote()
+}, {
     'propagate': true,
     'target': contentTextarea.element
 })

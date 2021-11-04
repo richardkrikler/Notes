@@ -10,11 +10,6 @@ class NoteEditorNav extends AbstractNav
     public function __construct($folder, $note)
     {
         parent::__construct();
-        $saveNoteFrom = (new FormElement('save-form', '/Note/SaveNote.php', 'get'))
-            ->addClasses('d-flex')
-            ->addContent(FormElement::getHiddenInputElement('note', $note->getPkNoteId()))
-            ->addContent('<button type="submit" class="border-0 bg-transparent"><div class="nav-icon"><i class="fas fa-save"></i></div></button>');
-
         parent::addContent(<<<NOTE_NAV
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
@@ -38,7 +33,7 @@ class NoteEditorNav extends AbstractNav
         
         <div class="vertical-divider"></div>
         
-        {$saveNoteFrom}
+        <div class="nav-icon" onclick="saveNote()" id="saveNote"><i class="fas fa-save"></i></div>
         
         <div class="vertical-divider"></div>
 

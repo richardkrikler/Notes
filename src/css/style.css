@@ -137,6 +137,10 @@ pre code * {
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
 }
 
+#saveNote.unsaved {
+    border-bottom: 2px solid var(--light-text);
+}
+
 
 /* Theme-Mode */
 body[theme-mode='2'],
@@ -199,4 +203,8 @@ body[theme-mode='2'] .dropdown-menu input {
 
 body[theme-mode='2'] .dropdown-menu *:hover {
     background-color: var(--dark-one);
+}
+
+body[theme-mode='2'] #saveNote.unsaved {
+    border-bottom: 2px solid var(--dark-text);
 }
