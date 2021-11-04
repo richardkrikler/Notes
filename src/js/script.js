@@ -41,7 +41,7 @@ async function updateStateSetting(settingId, optionNumber) {
     }).then(res => res.ok ? window.location.reload(true) : console.log('Error'))
 }
 
-const saveInterval = setInterval(saveNote, 5000)
+setInterval(saveNote, 5000)
 
 async function saveNote() {
     await fetch('Note/SaveNote.php', {
