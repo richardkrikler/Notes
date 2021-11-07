@@ -19,20 +19,6 @@ const contentTextarea = {
     }
 }
 
-function getNoteId() {
-    if ((window.location.href).indexOf('?') !== -1) {
-        const queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1)
-        const queryStringAr = queryString.split('=')
-        if (queryStringAr[0] === 'note') {
-            return queryStringAr[1]
-        }
-    }
-}
-
-window.addEventListener("beforeprint", function (event) {
-    window.location = '/notePrintViewer.php?note=' + getNoteId()
-})
-
 setInterval(saveNote, 5000)
 
 async function saveNote() {

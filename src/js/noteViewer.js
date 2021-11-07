@@ -46,3 +46,7 @@ async function saveFileFromInput(event) {
         saveFile(reader.result)
     }
 }
+
+window.addEventListener("beforeprint", function (event) {
+    window.location = '/notePrintViewer.php?note=' + getNoteId()
+})
