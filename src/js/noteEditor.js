@@ -44,16 +44,21 @@ function editorHelper(event) {
         saveNoteBt.classList.add('unsaved')
     }
 
-    autocompleteElements.forEach(e => {
-        if (event.key === e[0]) {
-            contentTextarea.insertText('', e[1])
-        }
-    });
-
     if (contentTextarea.ifTextSelected()) {
+        autocompleteElements.forEach(e => {
+            if (event.key === e[0]) {
+                contentTextarea.insertAtKeyPressAfterSelection(e[1])
+            }
+        });
         selectionBasedAutocomplete.forEach(e => {
             if (event.key === e[0]) {
                 contentTextarea.insertAtKeyPressAfterSelection(e[1])
+            }
+        });
+    } else {
+        autocompleteElements.forEach(e => {
+            if (event.key === e[0]) {
+                contentTextarea.insertText('', e[1])
             }
         });
     }
