@@ -11,7 +11,6 @@ class NoteEditorNav extends AbstractNav
     {
         parent::__construct();
         parent::addContent(<<<NOTE_NAV
-        <script src="js/shortcut.js" defer></script>
         <script src="js/noteEditor.js" defer></script>
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">

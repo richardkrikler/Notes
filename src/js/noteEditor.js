@@ -31,7 +31,8 @@ async function saveNote() {
 
 const startPageTitle = document.title
 const saveNoteBt = document.getElementById('saveNote')
-const insertableElements = [['(', ')'], ['{', '}'], ['[', ']'], ['*', '*'], ['_', '_']]
+const autocompleteElements = [['(', ')'], ['{', '}'], ['[', ']'], ['"', '"'], ['\'', '\'']]
+const selectionBasedAutocomplete = [['*', '*'], ['_', '_']]
 const modifierKeys = ['Ctrl', 'Alt', 'Shift', 'Meta']
 
 function editorHelper(event) {
@@ -39,37 +40,48 @@ function editorHelper(event) {
         saveNoteBt.classList.add('unsaved')
     }
 
-//    if (event.key.altKey && event.key === 'b') { // not working
-//        contentTextarea.insertText('*', '*')
-//        return
-//    }
+    autocompleteElements.forEach(e => {
+        if (event.key === e[0]) {
+            contentTextarea.insertText('', e[1])
+        }
+    });
 
     if (contentTextarea.ifTextSelected()) {
-        insertableElements.forEach(e => {
+        selectionBasedAutocomplete.forEach(e => {
             if (event.key === e[0]) {
                 contentTextarea.insertAtKeyPressAfterSelection(e[1])
             }
-        })
+        });
     }
 }
 
-shortcut.add("Meta+Alt+K", function () {
+shortcut.add('Meta+K', function () {
     contentTextarea.insertText('*', '*')
 }, {
-    'propagate': true,
     'target': contentTextarea.element
 })
 
-shortcut.add("Meta+Alt+B", function () {
+shortcut.add('Meta+B', function () {
     contentTextarea.insertText('**', '**')
 }, {
-    'propagate': true,
     'target': contentTextarea.element
 })
 
-shortcut.add("Meta+Alt+S", async function () {
+shortcut.add('Meta+Alt+C', function () {
+    contentTextarea.insertText('```', '\n```')
+    console.log('h')
+}, {
+    'target': contentTextarea.element
+})
+
+shortcut.add('Meta+S', async function () {
     await saveNote()
 }, {
-    'propagate': true,
+    'target': contentTextarea.element
+})
+
+shortcut.add('Tab', async function () {
+    contentTextarea.insertText('\t')
+}, {
     'target': contentTextarea.element
 })
