@@ -13,7 +13,7 @@ class NoteViewerNav extends AbstractNav
         parent::addContent(<<<NOTE_NAV
         <script src="js/noteViewer.js" defer></script>
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
-            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
+            <a class="align-self-center nav-icon" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
                 <i class="fas fa-folder me-md-2"></i>
             </a>
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
@@ -24,7 +24,7 @@ class NoteViewerNav extends AbstractNav
         <div class="vertical-divider"></div>
         
         <h4 class="note-name mb-0 fw-normal d-inline-flex">
-            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$note->getPkNoteId()}">
+            <a class="align-self-center nav-icon" href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$note->getPkNoteId()}">
                 <i class="fas fa-file-alt me-2"></i>
             </a>
             <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/noteViewer.php?note={$note->getPkNoteId()}">

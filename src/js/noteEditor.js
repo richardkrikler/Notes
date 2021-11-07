@@ -22,11 +22,15 @@ const contentTextarea = {
 setInterval(saveNote, 5000)
 
 async function saveNote() {
+    if (!saveNoteBt.classList.contains('unsaved')) {
+        return
+    }
+
     await fetch('Note/SaveNote.php', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({noteId: getNoteId(), content: contentTextarea.element.value}),
-    }).then(() => saveNoteBt.classList.remove('unsaved'))
+    }).then(() => saveNoteBt.classList.remove('unsaved'));
 }
 
 const startPageTitle = document.title
@@ -55,6 +59,11 @@ function editorHelper(event) {
     }
 }
 
+async function viewer() {
+    await saveNote()
+    window.location = '/noteViewer.php?note=' + getNoteId()
+}
+
 shortcut.add('Meta+K', function () {
     contentTextarea.insertText('*', '*')
 }, {
@@ -69,19 +78,20 @@ shortcut.add('Meta+B', function () {
 
 shortcut.add('Meta+Alt+C', function () {
     contentTextarea.insertText('```', '\n```')
-    console.log('h')
 }, {
     'target': contentTextarea.element
 })
 
 shortcut.add('Meta+S', async function () {
     await saveNote()
-}, {
-    'target': contentTextarea.element
 })
 
 shortcut.add('Tab', async function () {
     contentTextarea.insertText('\t')
 }, {
     'target': contentTextarea.element
+})
+
+shortcut.add('Meta+E', async function () {
+    await viewer()
 })
