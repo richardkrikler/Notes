@@ -1,9 +1,9 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Elements;
+namespace RichardKrikler\Notes\Elements;
 
-use RichardKrikler\CodingNotes\ModalBox\CreateNoteModalBox;
-use RichardKrikler\CodingNotes\ModalBox\RenameFolderModalBox;
+use RichardKrikler\Notes\ModalBox\CreateNoteModalBox;
+use RichardKrikler\Notes\ModalBox\RenameFolderModalBox;
 
 require_once 'AbstractNav.php';
 require_once __DIR__ . '/../ModalBox/CreateNoteModalBox.php';

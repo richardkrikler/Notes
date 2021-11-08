@@ -1,11 +1,11 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\DB;
+namespace RichardKrikler\Notes\DB;
 
 use PDO;
 use PDOException;
-use RichardKrikler\CodingNotes\Note\Note;
-use RichardKrikler\CodingNotes\Note\Notes;
+use RichardKrikler\Notes\Note\Note;
+use RichardKrikler\Notes\Note\Notes;
 
 require_once __DIR__ . '/../Note/Note.php';
 require_once __DIR__ . '/../Note/Notes.php';

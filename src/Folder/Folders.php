@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Folder;
+namespace RichardKrikler\Notes\Folder;
 
 class Folders
 {

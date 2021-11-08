@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\DB;
+namespace RichardKrikler\Notes\DB;
 
 use PDO;
 use PDOException;

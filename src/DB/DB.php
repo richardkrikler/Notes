@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\DB;
+namespace RichardKrikler\Notes\DB;
 
 use PDO;
 use PDOException;
@@ -9,9 +9,9 @@ class DB
 {
     // name of the service from docker-compose.yml -> "db"
     private static $SERVER = 'db';
-    private static $DBNAME = 'CodingNotes';
+    private static $DBNAME = 'Notes';
     private static $USERNAME = 'root';
-    private static $PASSWORD = 'CodingNotesPW';
+    private static $PASSWORD = 'NotesPW';
 
     /**
      * @return PDO

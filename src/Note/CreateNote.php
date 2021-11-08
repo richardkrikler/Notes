@@ -1,8 +1,8 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Note;
+namespace RichardKrikler\Notes\Note;
 
-use RichardKrikler\CodingNotes\DB\NotesDB;
+use RichardKrikler\Notes\DB\NotesDB;
 
 require_once __DIR__ . '/../DB/NotesDB.php';
 

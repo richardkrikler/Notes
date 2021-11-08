@@ -1,11 +1,11 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\DB;
+namespace RichardKrikler\Notes\DB;
 
 use PDO;
 use PDOException;
-use RichardKrikler\CodingNotes\Folder\Folder;
-use RichardKrikler\CodingNotes\Folder\Folders;
+use RichardKrikler\Notes\Folder\Folder;
+use RichardKrikler\Notes\Folder\Folders;
 
 require_once 'DB.php';
 require_once __DIR__ . '/../Folder/Folders.php';

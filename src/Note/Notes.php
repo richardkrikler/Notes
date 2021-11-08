@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Note;
+namespace RichardKrikler\Notes\Note;
 
 require_once 'Note.php';
 

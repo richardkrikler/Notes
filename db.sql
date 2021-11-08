@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS CodingNotes;
-CREATE DATABASE CodingNotes CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE CodingNotes;
+DROP DATABASE IF EXISTS Notes;
+CREATE DATABASE Notes CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE Notes;
 
 CREATE TABLE folders
 (

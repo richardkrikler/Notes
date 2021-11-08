@@ -5,7 +5,7 @@ services:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: CodingNotesPW
+      MYSQL_ROOT_PASSWORD: NotesPW
     ports:
       - "91:3306"
 

@@ -1,8 +1,8 @@
 <?php
 
-use RichardKrikler\CodingNotes\DB\FoldersDB;
-use RichardKrikler\CodingNotes\DB\NotesDB;
-use RichardKrikler\CodingNotes\Note\Note;
+use RichardKrikler\Notes\DB\FoldersDB;
+use RichardKrikler\Notes\DB\NotesDB;
+use RichardKrikler\Notes\Note\Note;
 
 require_once 'Note/Notes.php';
 require_once 'DB/NotesDB.php';

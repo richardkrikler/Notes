@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Elements;
+namespace RichardKrikler\Notes\Elements;
 
 require_once 'AbstractNav.php';
 

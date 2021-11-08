@@ -1,8 +1,8 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Template;
+namespace RichardKrikler\Notes\Template;
 
-use RichardKrikler\CodingNotes\DB\SettingsDB;
+use RichardKrikler\Notes\DB\SettingsDB;
 
 require_once __DIR__ . '/../DB/SettingsDB.php';
 
