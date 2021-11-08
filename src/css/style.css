@@ -109,6 +109,11 @@ nav .dropdown-toggle::after {
 }
 
 /* note content / rendered */
+.note-content table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .note-content table,
 .note-content th,
 .note-content td {
