@@ -21,7 +21,7 @@ $content = <<<NOTE_CONTENT
 <link rel="stylesheet" href="css/style.css">
 <link href="bower_components/bootstrap-css/index.css" rel="stylesheet">
 <script src="bower_components/bootstrap-js/index.js"></script>
-<script src="bower_components/showdown/dist/showdown.js"></script>
+<script src="bower_components/highlight.min/index.js"></script>
 <link rel="stylesheet" href="css/github.css">
 <script src="bower_components/showdown/index.js"></script>
 <script>hljs.highlightAll();</script>
