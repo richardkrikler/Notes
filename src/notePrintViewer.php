@@ -19,10 +19,11 @@ $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($no
 $note_content = NotesDB::getContentFromID($note_id);
 $content = <<<NOTE_CONTENT
 <link rel="stylesheet" href="css/style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.js" integrity="sha512-bvV1V1YSjP1fbfKJjTlNmdnUO2XpsLYUdKwmz5UXBi5U+x40rx9JpA0ooQUMZfpz1MaaBC0ydNLoC6r0sitPUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="bower_components/bootstrap-css/index.css" rel="stylesheet">
+<script src="bower_components/bootstrap-js/index.js"></script>
+<script src="bower_components/showdown/dist/showdown.js"></script>
 <link rel="stylesheet" href="css/github.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="bower_components/showdown/index.js"></script>
 <script>hljs.highlightAll();</script>
 
 <title>{$note->getName()}</title>

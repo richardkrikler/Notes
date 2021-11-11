@@ -21,13 +21,13 @@ class SiteTemplate
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
 
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <link href="external/bootstrap.min.css" rel="stylesheet">
-    <script src="external/bootstrap.bundle.min.js"></script>
+    <link href="bower_components/bootstrap-css/index.css" rel="stylesheet">
+    <script src="bower_components/bootstrap-js/index.js"></script>
     
-    <script src="external/shortcut.js" defer></script>
+    <script src="bower_components/shortcut-js/index.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 
