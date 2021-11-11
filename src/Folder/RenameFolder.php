@@ -1,8 +1,8 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\Folder;
+namespace RichardKrikler\Notes\Folder;
 
-use RichardKrikler\CodingNotes\DB\FoldersDB;
+use RichardKrikler\Notes\DB\FoldersDB;
 
 require_once __DIR__ . '/../DB/FoldersDB.php';
 

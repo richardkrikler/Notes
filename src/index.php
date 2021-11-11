@@ -1,10 +1,10 @@
 <?php
 
-namespace RichardKrikler\CodingNotes;
+namespace RichardKrikler\Notes;
 
-use RichardKrikler\CodingNotes\DB\FoldersDB;
-use RichardKrikler\CodingNotes\Elements\IndexNav;
-use RichardKrikler\CodingNotes\Template\SiteTemplate;
+use RichardKrikler\Notes\DB\FoldersDB;
+use RichardKrikler\Notes\Elements\IndexNav;
+use RichardKrikler\Notes\Template\SiteTemplate;
 
 require_once 'DB/FoldersDB.php';
 require_once 'Template/SiteTemplate.php';

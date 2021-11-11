@@ -1,9 +1,9 @@
 <?php
 
-namespace RichardKrikler\CodingNotes\ModalBox;
+namespace RichardKrikler\Notes\ModalBox;
 
 use AbstractModalBox;
-use RichardKrikler\CodingNotes\Elements\FormElement;
+use RichardKrikler\Notes\Elements\FormElement;
 
 require_once 'AbstractModalBox.php';
 require_once __DIR__ . '/../FormElement.php';

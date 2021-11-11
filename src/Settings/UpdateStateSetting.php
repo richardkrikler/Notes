@@ -1,6 +1,6 @@
 <?php
 
-use RichardKrikler\CodingNotes\DB\SettingsDB;
+use RichardKrikler\Notes\DB\SettingsDB;
 
 require_once __DIR__ . '/../DB/SettingsDB.php';
 

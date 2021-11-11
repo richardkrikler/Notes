@@ -1,27 +1,32 @@
 version: '3.8'
 
 services:
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: CodingNotesPW
-    ports:
-      - "91:3306"
-
   php-apache:
-    image: php_mysql-pdo
+    build: php-apache.dockerfile
+    container_name: notes_php-apache
     ports:
       - "90:80"
     volumes:
       - ./src:/var/www/html/
 
+  mysql:
+    image: mysql:latest
+    container_name: notes_db
+    ports:
+      - "91:3306"
+    volumes:
+      - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: NotesPW
+      MYSQL_DATABASE: NotesDB
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    container_name: notes_phpmyadmin
     links:
-      - db
+      - mysql
     environment:
-      PMA_HOST: db
+      PMA_HOST: mysql
       PMA_PORT: 3306
     ports:
       - "92:80"

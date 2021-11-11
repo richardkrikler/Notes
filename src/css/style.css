@@ -109,6 +109,11 @@ nav .dropdown-toggle::after {
 }
 
 /* note content / rendered */
+.note-content table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .note-content table,
 .note-content th,
 .note-content td {
@@ -135,6 +140,10 @@ pre code {
 pre code * {
     font-weight: inherit !important;
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
+}
+
+#saveNote.unsaved {
+    border-bottom: 2px solid var(--light-text);
 }
 
 
@@ -199,4 +208,8 @@ body[theme-mode='2'] .dropdown-menu input {
 
 body[theme-mode='2'] .dropdown-menu *:hover {
     background-color: var(--dark-one);
+}
+
+body[theme-mode='2'] #saveNote.unsaved {
+    border-bottom: 2px solid var(--dark-text);
 }

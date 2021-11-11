@@ -1,10 +1,10 @@
 <?php
 
-namespace RichardKrikler\CodingNotes;
+namespace RichardKrikler\Notes;
 
-use RichardKrikler\CodingNotes\DB\SettingsDB;
-use RichardKrikler\CodingNotes\Elements\SettingsNav;
-use RichardKrikler\CodingNotes\Template\SiteTemplate;
+use RichardKrikler\Notes\DB\SettingsDB;
+use RichardKrikler\Notes\Elements\SettingsNav;
+use RichardKrikler\Notes\Template\SiteTemplate;
 
 require_once 'Template/SiteTemplate.php';
 require_once 'Elements/Nav/SettingsNav.php';

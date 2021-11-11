@@ -1,11 +1,11 @@
 <?php
 
-use RichardKrikler\CodingNotes\DB\FoldersDB;
-use RichardKrikler\CodingNotes\DB\NotesDB;
-use RichardKrikler\CodingNotes\DB\SettingsDB;
-use RichardKrikler\CodingNotes\Elements\NoteViewerNav;
-use RichardKrikler\CodingNotes\Note\Note;
-use RichardKrikler\CodingNotes\Template\SiteTemplate;
+use RichardKrikler\Notes\DB\FoldersDB;
+use RichardKrikler\Notes\DB\NotesDB;
+use RichardKrikler\Notes\DB\SettingsDB;
+use RichardKrikler\Notes\Elements\NoteViewerNav;
+use RichardKrikler\Notes\Note\Note;
+use RichardKrikler\Notes\Template\SiteTemplate;
 
 require_once 'Template/SiteTemplate.php';
 require_once 'Elements/Nav/NoteViewerNav.php';

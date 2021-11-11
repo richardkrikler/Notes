@@ -1,9 +1,9 @@
 {
-  "name": "CodingNotes",
+  "name": "Notes",
   "version": "1.0.0",
-  "description": "CodingNotes: Note-taking WebApp for Developers",
+  "description": "Notes: Note-taking WebApp for Developers",
   "main": "client/index.html",
-  "repository": "https://github.com/RichardKrikler/CodingNotes ",
+  "repository": "https://github.com/RichardKrikler/Notes",
   "author": "Richard Krikler <kriklerrichard@outlook.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
