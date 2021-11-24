@@ -18,7 +18,7 @@ class FoldersDB
         $DB = DB::getDB();
         $folders = new Folders();
         try {
-            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM folders');
+            $stmt = $DB->prepare('SELECT pk_folder_id, name FROM folders ORDER BY name');
             if ($stmt->execute()) {
                 while ($row = $stmt->fetch()) {
                     $folders->addFolder(new Folder((int)$row['pk_folder_id'], $row['name']));

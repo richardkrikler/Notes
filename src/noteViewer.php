@@ -40,7 +40,7 @@ $content = <<<NOTE_CONTENT
 showdown.setFlavor('github')
 showdown.setOption('simplifiedAutoLink', true)
 showdown.setOption('tables', true)
-showdown.setOption('ghMentions', true)
+showdown.setOption('ghMentions', false)
 showdown.setOption('tasklists', true)
 
 function unescapeHTML(text) {
