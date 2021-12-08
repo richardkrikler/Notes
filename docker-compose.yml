@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   php-apache:
-    build: php-apache.dockerfile
+    build: .
     container_name: notes_php-apache
     ports:
       - "90:80"
