@@ -15,3 +15,15 @@ function getNoteId() {
         }
     }
 }
+
+function saveYScrollPos(scrollElementContainerId) {
+    localStorage.setItem('noteId', getNoteId())
+    localStorage.setItem('yScrollPos', String(document.getElementById(scrollElementContainerId).scrollHeight))
+}
+
+function scrollToSavedYScrollPos(scrollElementContainerId) {
+    if (localStorage.getItem('noteId') !== null && localStorage.getItem('noteId') === getNoteId() && localStorage.getItem('yScrollPos') !== null) {
+        console.log(localStorage.getItem('yScrollPos'))
+        // document.getElementById(scrollElementContainerId).scrollTo(0, Number(localStorage.getItem('yScrollPos')))
+    }
+}

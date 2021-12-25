@@ -66,6 +66,7 @@ function editorHelper(event) {
 
 async function viewer() {
     await saveNote()
+    saveYScrollPos('content-textarea')
     window.location = '/noteViewer.php?note=' + getNoteId()
 }
 

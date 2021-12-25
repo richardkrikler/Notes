@@ -3,5 +3,7 @@ window.addEventListener("beforeprint", function () {
 })
 
 shortcut.add('Meta+E', async function () {
+    saveYScrollPos('main-element')
     window.location = '/noteEditor.php?note=' + getNoteId()
 })
+

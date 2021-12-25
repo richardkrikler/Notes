@@ -35,7 +35,7 @@ class SiteTemplate
 
 {$nav}
 
-<main class="d-flex justify-content-center w-100 h-100 overflow-scroll">
+<main class="d-flex justify-content-center w-100 h-100 overflow-scroll" id="main-element">
 {$content}
 </main>
 
