@@ -7,6 +7,10 @@ shortcut.add('Meta+E', async function () {
     window.location = '/note/' + getNoteId() + '/edit'
 })
 
+shortcut.add('Meta+G', async function () {
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle()
+})
+
 function getTableOfContents() {
     let toc = '<ul>';
     [...document.getElementById('note-content').children].filter(e => ['H1', 'H2', 'H3'].includes(e.nodeName)).forEach((e, i, a) => {

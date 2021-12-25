@@ -38,18 +38,18 @@ class NoteViewerNav extends AbstractNav
         <div data-bs-toggle="modal" data-bs-target="#tocModal">
             <div class="nav-icon"><i class="fas fa-list"></i></div>
             
-            <div class="modal fade" id="tocModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{$note->getName()} - Table of Contents</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="note-toc"></div>
-                  </div>
+            <div class="modal" id="tocModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{$note->getName()} - Table of Contents</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="note-toc"></div>
+                    </div>
+                    </div>
                 </div>
-              </div>
             </div>
 
         </div>
