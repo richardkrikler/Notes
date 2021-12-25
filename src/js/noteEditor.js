@@ -26,7 +26,7 @@ async function saveNote() {
         return
     }
 
-    await fetch('Note/SaveNote.php', {
+    await fetch('/Note/SaveNote.php', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({noteId: getNoteId(), content: contentTextarea.element.value}),
