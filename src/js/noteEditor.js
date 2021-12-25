@@ -67,7 +67,7 @@ function editorHelper(event) {
 async function viewer() {
     await saveNote()
     saveYScrollPos('content-textarea')
-    window.location = '/noteViewer.php?note=' + getNoteId()
+    window.location = '/note/' + getNoteId()
 }
 
 shortcut.add('Meta+K', function () {

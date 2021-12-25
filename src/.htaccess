@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^folder/([0-9]+)/?$ notesViewer.php?folder=$1 [NC]
+RewriteRule ^note/([0-9]+)/?$ noteViewer.php?note=$1 [NC]
+RewriteRule ^note/([0-9]+)/edit/?$ noteEditor.php?note=$1 [NC]
+RewriteRule ^note/([0-9]+)/print/?$ notePrintViewer.php?note=$1 [NC]
+RewriteRule ^note/([0-9]+)/markdown/?$ noteMarkdownDownload.php?note=$1 [NC]

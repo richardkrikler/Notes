@@ -18,10 +18,10 @@ class NotesViewerNav extends AbstractNav
         $renameNoteModalBox = new RenameFolderModalBox($folder->getPkFolderId(), $folder->getName());
         parent::addContent(<<<NOTES_NAV
         <h4 class="mb-0 fw-normal d-inline-flex">
-            <a class="align-self-center nav-icon" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
+            <a class="align-self-center nav-icon" href="http://{$_SERVER["HTTP_HOST"]}/folder/{$folder->getPkFolderId()}">
                 <i class="fas fa-folder-open me-sm-2"></i>
             </a>
-            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
+            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/folder/{$folder->getPkFolderId()}">
                 <p class="align-self-center mb-0 d-sm-block d-none">{$folder->getName()}</p>
             </a>
         </h4>

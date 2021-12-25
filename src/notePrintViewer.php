@@ -18,12 +18,12 @@ $folder = FoldersDB::getFolderFromNoteID($note_id);
 $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($note_id));
 $note_content = NotesDB::getContentFromID($note_id);
 $content = <<<NOTE_CONTENT
-<link rel="stylesheet" href="css/style.css">
-<link href="bower_components/bootstrap-css/index.css" rel="stylesheet">
-<script src="bower_components/bootstrap-js/index.js"></script>
-<script src="bower_components/highlight.min/index.js"></script>
-<link rel="stylesheet" href="css/github.css">
-<script src="bower_components/showdown/index.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+<link href="/bower_components/bootstrap-css/index.css" rel="stylesheet">
+<script src="/bower_components/bootstrap-js/index.js"></script>
+<script src="/bower_components/highlight.min/index.js"></script>
+<link rel="stylesheet" href="/css/github.css">
+<script src="/bower_components/showdown/index.js"></script>
 <script>hljs.highlightAll();</script>
 
 <title>{$note->getName()}</title>

@@ -21,14 +21,14 @@ class SiteTemplate
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
 
-    <link rel="stylesheet" href="bower_components/font-awesome/css/all.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <link href="bower_components/bootstrap-css/index.css" rel="stylesheet">
-    <script src="bower_components/bootstrap-js/index.js"></script>
+    <link href="/bower_components/bootstrap-css/index.css" rel="stylesheet">
+    <script src="/bower_components/bootstrap-js/index.js"></script>
     
-    <script src="bower_components/shortcut-js/index.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <script src="/bower_components/shortcut-js/index.js" defer></script>
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body class="d-flex flex-column" theme-mode="{$themeSetting}">

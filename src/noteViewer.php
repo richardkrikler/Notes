@@ -27,9 +27,9 @@ $note_content = NotesDB::getContentFromID($note_id);
 $themeMode = SettingsDB::getStateSetting(1);
 $highlightStyle = $themeMode == 1 ? 'github.css' : 'github-dark.css';
 $content = <<<NOTE_CONTENT
-<script src="bower_components/showdown/index.js"></script>
-<link rel="stylesheet" href="css/{$highlightStyle}">
-<script src="bower_components/highlight.min/index.js"></script>
+<script src="/bower_components/showdown/index.js"></script>
+<link rel="stylesheet" href="/css/{$highlightStyle}">
+<script src="/bower_components/highlight.min/index.js"></script>
 
 <script>hljs.highlightAll();</script>
 

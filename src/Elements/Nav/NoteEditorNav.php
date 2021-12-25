@@ -11,13 +11,13 @@ class NoteEditorNav extends AbstractNav
     {
         parent::__construct();
         parent::addContent(<<<NOTE_NAV
-        <script src="js/noteEditor.js" defer></script>
+        <script src="/js/noteEditor.js" defer></script>
 <!--        <script>window.addEventListener('load', () => scrollToSavedYScrollPos('content-textarea'))</script>-->
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
-            <a class="align-self-center nav-icon" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
+            <a class="align-self-center nav-icon" href="/folder/{$folder->getPkFolderId()}">
                 <i class="fas fa-folder me-md-2"></i>
             </a>
-            <a class="align-self-center" href="http://{$_SERVER["HTTP_HOST"]}/notesViewer.php?folder={$folder->getPkFolderId()}">
+            <a class="align-self-center" href="/folder/{$folder->getPkFolderId()}">
                 <p class="align-self-center mb-0 d-md-block d-none">{$folder->getName()}</p>
             </a>
 <!--            <span class="align-self-center nav-icon" onclick="saveYScrollPos('content-textarea'); window.location = '/noteEditor.php?note=' + getNoteId()">-->
