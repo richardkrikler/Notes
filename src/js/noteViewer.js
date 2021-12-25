@@ -11,6 +11,12 @@ shortcut.add('Meta+G', async function () {
     bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle()
 })
 
+shortcut.add('Meta+Esc', async function () {
+    if (window.location.href.includes('#')) {
+        window.location.href = window.location.href.split('#')[0]
+    }
+})
+
 function getTableOfContents() {
     let toc = '<ul>';
     [...document.getElementById('note-content').children].filter(e => ['H1', 'H2', 'H3'].includes(e.nodeName)).forEach((e, i, a) => {

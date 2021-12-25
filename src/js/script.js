@@ -7,7 +7,7 @@ async function updateStateSetting(settingId, optionNumber) {
 }
 
 function getNoteId() {
-    return window.location.href.split('/').filter(e => !isNaN(e))[1]
+    return window.location.href.split('/').join('#').split('#').filter(e => !isNaN(e))[1]
 }
 
 function saveYScrollPos(scrollElementContainerId) {
