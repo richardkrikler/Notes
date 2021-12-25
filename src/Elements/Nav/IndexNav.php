@@ -16,7 +16,7 @@ class IndexNav extends AbstractNav
         parent::addContent(<<<NOTES_NAV
         <div class="nav-icon">
             <i class="fas fa-folder-plus" data-bs-toggle="modal" data-bs-target="#create-folder-modal-box"></i>
-            <p>{$createFolderModalBox}</p>
+            <p>$createFolderModalBox</p>
         </div>
 NOTES_NAV
         );

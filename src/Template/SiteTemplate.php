@@ -31,12 +31,12 @@ class SiteTemplate
     <script src="/js/script.js" defer></script>
 </head>
 
-<body class="d-flex flex-column" theme-mode="{$themeSetting}">
+<body class="d-flex flex-column" theme-mode="$themeSetting">
 
-{$nav}
+$nav
 
 <main class="d-flex justify-content-center w-100 h-100 overflow-scroll" id="main-element">
-{$content}
+$content
 </main>
 
 </body>

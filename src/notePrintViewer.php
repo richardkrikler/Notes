@@ -28,7 +28,7 @@ $content = <<<NOTE_CONTENT
 
 <title>{$note->getName()}</title>
 <div class="note-content" id="note-content">
-{$note_content}
+$note_content
 </div>
 <script>
 showdown.setFlavor('github')

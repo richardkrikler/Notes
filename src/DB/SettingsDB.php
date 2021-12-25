@@ -9,12 +9,12 @@ require_once 'DB.php';
 
 class SettingsDB
 {
-    static function getStateSetting($settingId): int
+    static function getStateSetting(int $settingId): int
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('SELECT option_number FROM options_state_settings WHERE fk_pk_state_setting_id = :settingId AND active_state = true');
-            $stmt->bindParam(":settingId", $settingId, PDO::PARAM_INT);
+            $stmt->bindParam(":settingId", $settingId);
             $state = '';
             if ($stmt->execute()) {
                 $state = $stmt->fetch()['option_number'];
@@ -28,14 +28,14 @@ class SettingsDB
         }
     }
 
-    static function updateStateSetting($settingId, $optionNumber)
+    static function updateStateSetting(int $settingId, int $optionNumber)
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('UPDATE options_state_settings SET active_state = false WHERE fk_pk_state_setting_id = :settingId;
                                     UPDATE options_state_settings SET active_state = true WHERE fk_pk_state_setting_id = :settingId AND option_number = :optionNumber');
-            $stmt->bindParam(":settingId", $settingId, PDO::PARAM_INT);
-            $stmt->bindParam(":optionNumber", $optionNumber, PDO::PARAM_INT);
+            $stmt->bindParam(":settingId", $settingId);
+            $stmt->bindParam(":optionNumber", $optionNumber);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
@@ -44,12 +44,12 @@ class SettingsDB
         }
     }
 
-    static function getOptionsStateSetting($settingId): array
+    static function getOptionsStateSetting(int $settingId): array
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('SELECT option_number, option_value, active_state FROM options_state_settings WHERE fk_pk_state_setting_id = :settingId');
-            $stmt->bindParam(":settingId", $settingId, PDO::PARAM_INT);
+            $stmt->bindParam(":settingId", $settingId);
             $options = [];
 
             if ($stmt->execute()) {

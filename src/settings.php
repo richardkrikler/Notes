@@ -23,7 +23,7 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
         <div class="mb-1">
             <label for="theme-mode" class="form-label">Theme Mode</label>
             <select class="form-select" name="theme-mode" onchange="updateStateSetting(1, this.value)">
-                {$optionElements}
+                $optionElements
             </select>
         </div>
     

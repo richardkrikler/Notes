@@ -23,7 +23,7 @@ $note = new Note($note_id, $folder->getPkFolderId(), NotesDB::getTitleFromID($no
 
 $note_content = NotesDB::getContentFromID($note_id);
 $content = <<<NOTE_CONTENT
-<textarea id="content-textarea" name="content" class="editor-area container-lg h-100 px-3 py-5 border-0" placeholder="Start writing..." onkeydown="editorHelper(event)">{$note_content}</textarea>
+<textarea id="content-textarea" name="content" class="editor-area container-lg h-100 px-3 py-5 border-0" placeholder="Start writing..." onkeydown="editorHelper(event)">$note_content</textarea>
 NOTE_CONTENT;
 
 print(SiteTemplate::render((new NoteEditorNav($folder, $note)), $content));

@@ -33,12 +33,12 @@ class FoldersDB
         return $folders;
     }
 
-    static function getFolderFromID($folderId): Folder
+    static function getFolderFromID(int $folderId): Folder
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('SELECT pk_folder_id, name FROM folders WHERE pk_folder_id = :folderId');
-            $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
+            $stmt->bindParam(":folderId", $folderId);
             $folder = new Folder();
             if ($stmt->execute()) {
                 $row = $stmt->fetch();
@@ -54,12 +54,12 @@ class FoldersDB
         }
     }
 
-    static function getFolderFromNoteID($noteId): Folder
+    static function getFolderFromNoteID(int $noteId): Folder
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('SELECT pk_folder_id, name FROM notes INNER JOIN folders on fk_pk_folder_id = pk_folder_id WHERE pk_note_id = :noteId');
-            $stmt->bindParam(":noteId", $noteId, PDO::PARAM_INT);
+            $stmt->bindParam(":noteId", $noteId);
             $folder = new Folder();
             if ($stmt->execute()) {
                 $row = $stmt->fetch();
@@ -75,7 +75,7 @@ class FoldersDB
         }
     }
 
-    static function createFolder($name): void
+    static function createFolder(string $name): void
     {
         $DB = DB::getDB();
         try {
@@ -89,12 +89,12 @@ class FoldersDB
         }
     }
 
-    public static function renameFolder($folderId, $name): void
+    public static function renameFolder(int $folderId, string $name): void
     {
         $DB = DB::getDB();
         try {
             $stmt = $DB->prepare('UPDATE folders SET name = :name WHERE pk_folder_id = :folderId');
-            $stmt->bindParam(":folderId", $folderId, PDO::PARAM_INT);
+            $stmt->bindParam(":folderId", $folderId);
             $stmt->bindParam(":name", $name);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

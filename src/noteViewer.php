@@ -28,13 +28,13 @@ $themeMode = SettingsDB::getStateSetting(1);
 $highlightStyle = $themeMode == 1 ? 'github.css' : 'github-dark.css';
 $content = <<<NOTE_CONTENT
 <script src="/bower_components/showdown/index.js"></script>
-<link rel="stylesheet" href="/css/{$highlightStyle}">
+<link rel="stylesheet" href="/css/$highlightStyle">
 <script src="/bower_components/highlight.min/index.js"></script>
 
 <script>hljs.highlightAll();</script>
 
 <div class="note-content container-lg pt-5 mb-5 px-3" id="note-content">
-{$note_content}
+$note_content
 </div>
 <script>
 showdown.setFlavor('github')

@@ -19,14 +19,6 @@ abstract class AbstractModalBox
         $this->body = $body;
     }
 
-    /**
-     * @param mixed $footer
-     */
-    public function setFooter($footer): void
-    {
-        $this->footer = $footer;
-    }
-
     public function setFooterConfirmCancel(): AbstractModalBox
     {
         $this->footer = <<<FOOTER
@@ -39,18 +31,18 @@ FOOTER;
     public function getModalBox(): string
     {
         return <<<MODAL_BOX
-<div class="modal" id="{$this->id}" tabindex="-1" aria-labelledby="{$this->id}Label" aria-hidden="true">
+<div class="modal" id="$this->id" tabindex="-1" aria-labelledby="{$this->id}Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="{$this->id}Label">{$this->title}</h5>
+        <h5 class="modal-title" id="{$this->id}Label">$this->title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        {$this->body}
+        $this->body
       </div>
       <div class="modal-footer">
-        {$this->footer}
+        $this->footer
       </div>
     </div>
   </div>
