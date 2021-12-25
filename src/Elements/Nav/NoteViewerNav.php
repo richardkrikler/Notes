@@ -35,6 +35,25 @@ class NoteViewerNav extends AbstractNav
         
         <div class="vertical-divider"></div>
         
+        <div data-bs-toggle="modal" data-bs-target="#tocModal">
+            <div class="nav-icon"><i class="fas fa-list"></i></div>
+            
+            <div class="modal fade" id="tocModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{$note->getName()} - Table of Contents</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="note-toc"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        
         <a class="" href="{$note->getPkNoteId()}/edit">
             <div class="nav-icon"><i class="fas fa-file-signature"></i></div>
         </a>
@@ -42,7 +61,6 @@ class NoteViewerNav extends AbstractNav
 <!--        <span onclick="saveYScrollPos('main-element'); window.location = '/noteEditor.php?note=' + getNoteId()">-->
 <!--            <div class="nav-icon"><i class="fas fa-file-signature"></i></div>-->
 <!--        </span>-->
-
 
         <div class="nav-icon dropdown-toggle" id="exportDropdownButton" role="button" data-bs-toggle="dropdown"><i class="fas fa-external-link-alt"></i></div>
         <ul class="dropdown-menu py-0" aria-labelledby="exportDropdownButton" style="min-width: 0">
