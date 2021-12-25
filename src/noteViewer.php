@@ -53,8 +53,9 @@ function unescapeHTML(text) {
 
 const noteContentElement = document.getElementById('note-content')
 const converter = new showdown.Converter()
-noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML))
+noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML));
 
+[...noteContentElement.children].filter(e => e.nodeName === 'PRE').map(e => e.children[0]).forEach(e => e.setAttribute('code-language', e.classList[0]))
 </script>
 NOTE_CONTENT;
 

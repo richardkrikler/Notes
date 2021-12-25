@@ -140,6 +140,20 @@ pre code {
     display: block;
     overflow-x: auto;
     padding: 1em;
+    position: relative;
+}
+
+
+pre code::after {
+    background-color: var(--light-one);
+    border-left: 1px solid var(--light-two);
+    border-bottom: 1px solid var(--light-two);
+    content: attr(code-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px 7px;
+    border-bottom-left-radius: .25rem;
 }
 
 pre code * {
@@ -188,8 +202,10 @@ body[theme-mode='2'] pre {
     border-color: var(--dark-one);
 }
 
-body[theme-mode='2'] pre code {
+body[theme-mode='2'] pre code::after {
     background-color: var(--dark-three);
+    border-left: 1px solid var(--dark-one);
+    border-bottom: 1px solid var(--dark-one);
 }
 
 body[theme-mode='2'] input {
