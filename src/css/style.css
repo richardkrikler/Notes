@@ -134,17 +134,17 @@ nav .dropdown-toggle::after {
 pre {
     border-radius: .25rem;
     border: 1px solid var(--light-two);
+    position: relative;
 }
 
 pre code {
     display: block;
     overflow-x: auto;
     padding: 1em;
-    position: relative;
 }
 
 
-pre code::after {
+pre::after {
     background-color: var(--light-one);
     border-left: 1px solid var(--light-two);
     border-bottom: 1px solid var(--light-two);
@@ -202,7 +202,7 @@ body[theme-mode='2'] pre {
     border-color: var(--dark-one);
 }
 
-body[theme-mode='2'] pre code::after {
+body[theme-mode='2'] pre::after {
     background-color: var(--dark-three);
     border-left: 1px solid var(--dark-one);
     border-bottom: 1px solid var(--dark-one);
