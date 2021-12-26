@@ -1,17 +1,13 @@
-window.addEventListener("beforeprint", function () {
-    window.location = '/note/' + getNoteId() + '/print'
-})
+window.addEventListener("beforeprint", () => window.location = '/note/' + getNoteId() + '/print')
 
-shortcut.add('Meta+E', function () {
+shortcut.add('Meta+E', () => {
     saveYScrollPos('main-element')
     window.location = '/note/' + getNoteId() + '/edit'
 })
 
-shortcut.add('Meta+G', function () {
-    bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle()
-})
+shortcut.add('Meta+G', () => bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle())
 
-shortcut.add('Meta+Esc', function () {
+shortcut.add('Meta+Esc', () => {
     if (window.location.href.includes('#')) {
         window.location.href = window.location.href.split('#')[0]
     }
@@ -31,6 +27,4 @@ function getTableOfContents() {
     return toc + '</ul>'
 }
 
-window.addEventListener('load', () => {
-    document.getElementsByClassName('note-toc')[0].innerHTML = getTableOfContents()
-})
+window.addEventListener('load', () => document.getElementsByClassName('note-toc')[0].innerHTML = getTableOfContents())

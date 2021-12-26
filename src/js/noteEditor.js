@@ -30,7 +30,7 @@ async function saveNote() {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({noteId: getNoteId(), content: contentTextarea.element.value}),
-    }).then(() => saveNoteBt.classList.remove('unsaved'));
+    }).then(() => saveNoteBt.classList.remove('unsaved'))
 }
 
 const startPageTitle = document.title
@@ -70,37 +70,33 @@ async function viewer() {
     window.location = '/note/' + getNoteId()
 }
 
-shortcut.add('Meta+K', function () {
+shortcut.add('Meta+K',  () => {
     contentTextarea.insertText('*', '*')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+B', function () {
+shortcut.add('Meta+B',  () => {
     contentTextarea.insertText('**', '**')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+Alt+C', function () {
+shortcut.add('Meta+Alt+C',  () => {
     contentTextarea.insertText('```', '\n```')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+S', async function () {
-    await saveNote()
-})
+shortcut.add('Meta+S', async () => await saveNote())
 
-shortcut.add('Tab', function () {
+shortcut.add('Tab', () => {
     contentTextarea.insertText('  ')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+E', async function () {
-    await viewer()
-})
+shortcut.add('Meta+E', async () => await viewer())
 
 async function saveFile(data) {
     data = data.substr(22)
@@ -115,7 +111,7 @@ async function saveFile(data) {
         twoDigitStr(today.getSeconds())
     const name = "image_" + dateString
 
-    await fetch("File/CreateFile.php", {
+    await fetch("/File/CreateFile.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -135,9 +131,7 @@ async function saveFileFromUrl(event, value) {
     await fetch(value).then(res => res.blob())
         .then(blob => {
             const reader = new FileReader()
-            reader.onload = function () {
-                saveFile(this.result)
-            }
+            reader.onload = () => saveFile(this.result)
             reader.readAsDataURL(blob)
         })
 }
@@ -146,7 +140,5 @@ async function saveFileFromInput(event) {
     const selectedFile = event.target.files[0]
     const reader = new FileReader()
     reader.readAsDataURL(selectedFile)
-    reader.onload = function () {
-        saveFile(reader.result)
-    }
+    reader.onload = () => saveFile(reader.result)
 }
