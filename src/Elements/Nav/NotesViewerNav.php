@@ -17,6 +17,7 @@ class NotesViewerNav extends AbstractNav
         $createNoteModalBox = new CreateNoteModalBox($folder->getPkFolderId());
         $renameNoteModalBox = new RenameFolderModalBox($folder->getPkFolderId(), $folder->getName());
         parent::addContent(<<<NOTES_NAV
+        <script src="/js/notesViewer.js" defer></script>
         <h4 class="mb-0 fw-normal d-inline-flex">
             <a class="align-self-center nav-icon" href="/folder/{$folder->getPkFolderId()}">
                 <i class="fas fa-folder-open me-sm-2"></i>

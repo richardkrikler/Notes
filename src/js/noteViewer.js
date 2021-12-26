@@ -2,16 +2,16 @@ window.addEventListener("beforeprint", function () {
     window.location = '/note/' + getNoteId() + '/print'
 })
 
-shortcut.add('Meta+E', async function () {
+shortcut.add('Meta+E', function () {
     saveYScrollPos('main-element')
     window.location = '/note/' + getNoteId() + '/edit'
 })
 
-shortcut.add('Meta+G', async function () {
+shortcut.add('Meta+G', function () {
     bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle()
 })
 
-shortcut.add('Meta+Esc', async function () {
+shortcut.add('Meta+Esc', function () {
     if (window.location.href.includes('#')) {
         window.location.href = window.location.href.split('#')[0]
     }

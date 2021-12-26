@@ -92,7 +92,7 @@ shortcut.add('Meta+S', async function () {
     await saveNote()
 })
 
-shortcut.add('Tab', async function () {
+shortcut.add('Tab', function () {
     contentTextarea.insertText('  ')
 }, {
     'target': contentTextarea.element

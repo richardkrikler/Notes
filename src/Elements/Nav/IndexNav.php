@@ -14,6 +14,7 @@ class IndexNav extends AbstractNav
         parent::__construct();
         $createFolderModalBox = new CreateFolderModalBox();
         parent::addContent(<<<NOTES_NAV
+        <script src="/js/folderViewer.js" defer></script>
         <div class="nav-icon">
             <i class="fas fa-folder-plus" data-bs-toggle="modal" data-bs-target="#create-folder-modal-box"></i>
             <p>$createFolderModalBox</p>
