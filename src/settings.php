@@ -33,7 +33,7 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
         </div>-->
     </div>
     <div class="mt-5">
-        <h1>Keyboard-Shortcut List</h1>
+        <h2>Keyboard-Shortcut List</h2>
         <table class="table table-striped table-bordered rounded-1 mt-3">
             <thead>
                 <tr>
