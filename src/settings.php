@@ -10,10 +10,12 @@ require_once 'Template/SiteTemplate.php';
 require_once 'Elements/Nav/SettingsNav.php';
 
 $themeOptions = SettingsDB::getOptionsStateSetting(1);
-$optionElements = '';
+$themeOptionElements = '';
 foreach ($themeOptions as $themeOption) {
-    $optionElements .= '<option value="' . $themeOption[0] . '" ' . ($themeOption[2] == 1 ? "selected" : "") . '>' . $themeOption[1] . '</option>';
+    $themeOptionElements .= '<option value="' . $themeOption[0] . '" ' . ($themeOption[2] == 1 ? "selected" : "") . '>' . $themeOption[1] . '</option>';
 }
+
+$headerUpdateModeChecked = SettingsDB::getBooleanSetting(2) ? 'checked' : '';
 
 print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
 <div class="container mt-5">
@@ -23,14 +25,14 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
         <div class="mb-1">
             <label for="theme-mode" class="form-label">Theme Mode</label>
             <select class="form-select" name="theme-mode" onchange="updateStateSetting(1, this.value)">
-                $optionElements
+                $themeOptionElements
             </select>
         </div>
     
-        <!--<div class="mb-1">
-            <input type="checkbox" id="dark-mode" name="darkmode" checked>
-            <label for="dark-mode">Dark Mode</label>
-        </div>-->
+        <div class="mb-1 mt-4">
+            <label for="header-update-mode" class="form-label">Update Note-Header to first H1</label><br>
+            <input class="form-check-input" type="checkbox" id="header-update-mode" name="header-update-mode" $headerUpdateModeChecked onchange="updateBooleanSetting(2, this.checked)">
+        </div>
     </div>
     <div class="mt-5">
         <h2>Keyboard-Shortcut List</h2>

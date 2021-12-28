@@ -10,6 +10,7 @@ use RichardKrikler\Notes\Note\Notes;
 require_once __DIR__ . '/../Note/Note.php';
 require_once __DIR__ . '/../Note/Notes.php';
 require_once 'DB.php';
+require_once 'SettingsDB.php';
 
 class NotesDB
 {
@@ -112,9 +113,11 @@ class NotesDB
             $stmt->bindParam(":pkNoteId", $noteId);
             $stmt->bindParam(":content", $content);
             if ($stmt->execute()) {
-                $noteTitleMatch = preg_match('/(#)\s?(.+)/m', $content, $titleMatches);
-                if ($noteTitleMatch) {
-                    self::updateNoteTitle($noteId, $titleMatches[2]);
+                if (SettingsDB::getBooleanSetting(2) === true) {
+                    $noteTitleMatch = preg_match('/(#)\s?(.+)/m', $content, $titleMatches);
+                    if ($noteTitleMatch) {
+                        self::updateNoteTitle($noteId, $titleMatches[2]);
+                    }
                 }
             }
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

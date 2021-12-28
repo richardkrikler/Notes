@@ -65,4 +65,39 @@ class SettingsDB
             exit();
         }
     }
+
+    static function getBooleanSetting(int $settingId): bool
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('SELECT bool FROM boolean_settings WHERE pk_boolean_setting_id = :settingId');
+            $stmt->bindParam(":settingId", $settingId);
+            $bool = false;
+            $stmt->execute();
+            if ($stmt->execute()) {
+                $row = $stmt->fetch();
+                $bool = $row['bool'];
+            }
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $bool;
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
+
+    static function updateBooleanSetting(int $settingId, bool $bool)
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('UPDATE boolean_settings SET bool = :bool WHERE pk_boolean_setting_id = :settingId');
+            $stmt->bindParam(":settingId", $settingId);
+            $stmt->bindParam(":bool", $bool, PDO::PARAM_BOOL);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
