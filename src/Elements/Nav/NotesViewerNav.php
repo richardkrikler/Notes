@@ -3,11 +3,13 @@
 namespace RichardKrikler\Notes\Elements;
 
 use RichardKrikler\Notes\ModalBox\CreateNoteModalBox;
+use RichardKrikler\Notes\ModalBox\DeleteFolderModalBox;
 use RichardKrikler\Notes\ModalBox\RenameFolderModalBox;
 
 require_once 'AbstractNav.php';
 require_once __DIR__ . '/../ModalBox/CreateNoteModalBox.php';
 require_once __DIR__ . '/../ModalBox/RenameFolderModalBox.php';
+require_once __DIR__ . '/../ModalBox/DeleteFolderModalBox.php';
 
 class NotesViewerNav extends AbstractNav
 {
@@ -16,6 +18,7 @@ class NotesViewerNav extends AbstractNav
         parent::__construct();
         $createNoteModalBox = new CreateNoteModalBox($folder->getPkFolderId());
         $renameNoteModalBox = new RenameFolderModalBox($folder->getPkFolderId(), $folder->getName());
+        $deleteFolderModalBox = new DeleteFolderModalBox($folder->getPkFolderId());
         parent::addContent(<<<NOTES_NAV
         <script src="/js/notesViewer.js" defer></script>
         <h4 class="mb-0 fw-normal d-inline-flex">
@@ -34,6 +37,8 @@ class NotesViewerNav extends AbstractNav
         <div class="vertical-divider"></div>
         
         <div class="nav-icon"><i class="fas fa-plus-square" data-bs-toggle="modal" data-bs-target="#create-note-modal-box"></i>$createNoteModalBox</div>
+
+        <div class="nav-icon"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete-folder-modal-box"></i>$deleteFolderModalBox</div>
 NOTES_NAV
         );
     }

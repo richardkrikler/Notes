@@ -103,4 +103,18 @@ class FoldersDB
             exit();
         }
     }
+
+    static function deleteFolder($folderId)
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('DELETE FROM folders WHERE pk_folder_id = :folderId');
+            $stmt->bindParam(":folderId", $folderId);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
