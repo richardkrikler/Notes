@@ -101,4 +101,18 @@ class NotesDB
             exit();
         }
     }
+
+    static function deleteNote(int $noteId)
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('DELETE FROM notes WHERE pk_note_id = :pkNoteId');
+            $stmt->bindParam(":pkNoteId", $noteId);
+            $stmt->execute();
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }

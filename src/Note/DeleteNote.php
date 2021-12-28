@@ -6,8 +6,8 @@ use RichardKrikler\Notes\DB\NotesDB;
 
 require_once __DIR__ . '/../DB/NotesDB.php';
 
-if (isset($_GET['folderId']) && isset($_GET['title'])) {
-    NotesDB::createNote($_GET['folderId'], $_GET['title']);
+if (isset($_GET['folderId']) && isset($_GET['noteId'])) {
+    NotesDB::deleteNote($_GET['noteId']);
     header('Location: /folder/' . $_GET['folderId']);
 } else {
     header('Location: /index.php');

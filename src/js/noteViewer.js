@@ -14,12 +14,12 @@ function unescapeHTML(text) {
 
 const noteContentElement = document.getElementById('note-content')
 const converter = new showdown.Converter()
-noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML));
+noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML))
 hljs.highlightAll();
 
 [...noteContentElement.children].filter(e => e.nodeName === 'PRE').forEach(e => e.setAttribute('code-language', e.children[0].classList[0]));
 
-[...noteContentElement.children].filter(e => ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(e.nodeName)).forEach((e, i, a) => e.addEventListener('click', () => window.location.href = window.location.pathname + '#' + e.id))
+[...noteContentElement.children].filter(e => ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(e.nodeName)).forEach(e => e.addEventListener('click', () => window.location.href = window.location.pathname + '#' + e.id))
 
 window.addEventListener("beforeprint", () => window.location = '/note/' + getNoteId() + '/print')
 
