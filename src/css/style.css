@@ -125,7 +125,6 @@ nav .dropdown-toggle::after {
     padding: 5px 10px;
 }
 
-/*.note-content p > ul*/
 .note-content p + ul {
     margin-top: -11pt;
 }
