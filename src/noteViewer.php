@@ -31,32 +31,9 @@ $content = <<<NOTE_CONTENT
 <link rel="stylesheet" href="/css/$highlightStyle">
 <script src="/bower_components/highlight.min/index.js"></script>
 
-<script>hljs.highlightAll();</script>
-
 <div class="note-content container-lg pt-5 mb-5 px-3" id="note-content">
 $note_content
 </div>
-<script>
-showdown.setFlavor('github')
-showdown.setOption('simplifiedAutoLink', true)
-showdown.setOption('tables', true)
-showdown.setOption('ghMentions', false)
-showdown.setOption('tasklists', true)
-
-function unescapeHTML(text) {
-    return text.replace( /&amp;/g, "&" )
-	    .replace( /&lt;/g, "<" )
-		.replace( /&gt;/g, ">" )
-		.replace( /&quot;/g, "\"" )
-		.replace( /&#39;/g, "'" )
-}
-
-const noteContentElement = document.getElementById('note-content')
-const converter = new showdown.Converter()
-noteContentElement.innerHTML = converter.makeHtml(unescapeHTML(noteContentElement.innerHTML));
-
-[...noteContentElement.children].filter(e => e.nodeName === 'PRE').forEach(e => e.setAttribute('code-language', e.children[0].classList[0]))
-</script>
 NOTE_CONTENT;
 
 

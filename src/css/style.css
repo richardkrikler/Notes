@@ -130,6 +130,16 @@ nav .dropdown-toggle::after {
     margin-top: -11pt;
 }
 
+.note-content h1:hover,
+.note-content h2:hover,
+.note-content h3:hover,
+.note-content h4:hover,
+.note-content h5:hover,
+.note-content h6:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* Code Blocks */
 pre {
     border-radius: .25rem;
