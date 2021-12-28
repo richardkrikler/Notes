@@ -69,6 +69,10 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
                     <td>Editor: Bold-Text (insert **)</td>
                 </tr>
                 <tr>
+                    <th scope="row">Cmd + D</th>
+                    <td>Editor: Duplicate Selection or Line</td>
+                </tr>
+                <tr>
                     <th scope="row">Cmd + K</th>
                     <td>Editor: Italic-Text (insert *)</td>
                 </tr>

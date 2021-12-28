@@ -16,6 +16,38 @@ const contentTextarea = {
     },
     insertAtKeyPressAfterSelection(sEndTag) {
         contentTextarea.insertText('', contentTextarea.getSelectedText() + sEndTag)
+    },
+    getCurrentLinePos() {
+        const oMsgText = this.element.value, nSelStart = this.element.selectionStart
+        return [oMsgText.substring(0, nSelStart).lastIndexOf('\n') + 1, oMsgText.substring(nSelStart).indexOf('\n') === -1 ? this.element.textLength : oMsgText.substring(nSelStart).indexOf('\n') + nSelStart]
+    },
+    getCurrentLine() {
+        const curLinePos = this.getCurrentLinePos()
+        return this.element.value.substring(curLinePos[0], curLinePos[1])
+    },
+    duplicateCurrentLine() {
+        const curLine = this.getCurrentLine()
+        const curLinePos = this.getCurrentLinePos()
+        const newStartPos = this.element.selectionStart + curLine.length + 1
+
+        this.element.selectionStart = curLinePos[1] + 1
+        this.insertText(curLinePos[1] === this.element.textLength ? '\n' + curLine : curLine + '\n')
+        this.element.selectionStart = newStartPos
+        this.element.selectionEnd = newStartPos
+    },
+    duplicateSelection() {
+        const text = this.getSelectedText()
+        const oldSelectionEnd = this.element.selectionEnd
+        this.element.selectionStart = oldSelectionEnd
+        this.insertText(text)
+        this.element.selectionStart = oldSelectionEnd
+    },
+    duplicate() {
+        if (this.element.selectionStart === this.element.selectionEnd) {
+            this.duplicateCurrentLine()
+        } else {
+            this.duplicateSelection();
+        }
     }
 }
 
@@ -69,19 +101,19 @@ async function viewer() {
     window.location = '/note/' + getNoteId()
 }
 
-shortcut.add('Meta+K',  () => {
+shortcut.add('Meta+K', () => {
     contentTextarea.insertText('*', '*')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+B',  () => {
+shortcut.add('Meta+B', () => {
     contentTextarea.insertText('**', '**')
 }, {
     'target': contentTextarea.element
 })
 
-shortcut.add('Meta+Alt+C',  () => {
+shortcut.add('Meta+Alt+C', () => {
     contentTextarea.insertText('```', '\n```')
 }, {
     'target': contentTextarea.element
@@ -96,6 +128,8 @@ shortcut.add('Tab', () => {
 })
 
 shortcut.add('Meta+E', async () => await viewer())
+
+shortcut.add('Meta+D', () => contentTextarea.duplicate())
 
 async function saveFile(data) {
     data = data.substr(22)
