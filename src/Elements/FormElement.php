@@ -38,8 +38,8 @@ class FormElement
     {
         return <<<INPUT
 <div class="mb-3">
-    <label for="{$inputId}" class="form-label">{$inputLabel}</label>
-    <input id="{$inputId}" name="{$inputName}" class="form-control" required placeholder="{$inputPlaceholder}" value="{$inputValue}">
+    <label for="$inputId" class="form-label">$inputLabel</label>
+    <input id="$inputId" name="$inputName" class="form-control" required placeholder="$inputPlaceholder" value="$inputValue">
 </div>
 INPUT;
     }
@@ -47,7 +47,7 @@ INPUT;
     public static function getHiddenInputElement(string $inputName, string $value): string
     {
         return <<<HIDDEN_INPUT
-    <input name="{$inputName}" required hidden value="{$value}">
+    <input name="$inputName" required hidden value="$value">
 HIDDEN_INPUT;
     }
 
@@ -56,8 +56,8 @@ HIDDEN_INPUT;
     {
         return <<<DROPDOWN
 <div class="mb-3">
-<label for="{$selectId}" class="form-label">{$selectText}</label>
-<select class="form-select" name="{$selectName}">
+<label for="$selectId" class="form-label">$selectText</label>
+<select class="form-select" name="$selectName">
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
@@ -69,7 +69,7 @@ DROPDOWN;
     public function __toString(): string
     {
         return <<<FORM
-<form id="{$this->formId}" action="{$this->action}" method="{$this->method}" class="{$this->classes}">{$this->content}</form>
+<form id="$this->formId" action="$this->action" method="$this->method" class="$this->classes">$this->content</form>
 FORM;
     }
 }

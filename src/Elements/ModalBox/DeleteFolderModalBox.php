@@ -8,14 +8,13 @@ use RichardKrikler\Notes\Elements\FormElement;
 require_once 'AbstractModalBox.php';
 require_once __DIR__ . '/../FormElement.php';
 
-class RenameFolderModalBox extends AbstractModalBox
+class DeleteFolderModalBox extends AbstractModalBox
 {
-    public function __construct(int $folderId, $folderName)
+    public function __construct(int $folderId)
     {
         parent::__construct(
-            'rename-folder-modal-box',
-            'Rename Folder',
-            FormElement::getInputElement('folder-name', 'name', 'Folder Name', $folderName, $folderName) .
+            'delete-folder-modal-box',
+            'Delete Folder',
             FormElement::getHiddenInputElement('folderId', $folderId)
         );
         $this->setFooterConfirmCancel();
@@ -23,6 +22,6 @@ class RenameFolderModalBox extends AbstractModalBox
 
     public function __toString(): string
     {
-        return (new FormElement('rename-folder-form', '/Folder/RenameFolder.php', 'get'))->addContent($this->getModalBox());
+        return (new FormElement('delete-folder-form', '/Folder/DeleteFolder.php', 'get'))->addContent($this->getModalBox());
     }
 }

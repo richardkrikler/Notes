@@ -1,8 +1,13 @@
 # Notes
+Note-taking WebApp using Markdown
 
-## Startup
+![Notes Demo Screenshot](images/Notes-Demo-Screenshot.png)
+
+## Installation / Startup
 ```shell
+git clone https://github.com/richardkrikler/Notes
 docker compose up -d
+cd src && bower install
 ```
 
 ## Export/Import Database

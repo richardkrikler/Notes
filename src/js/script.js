@@ -7,11 +7,5 @@ async function updateStateSetting(settingId, optionNumber) {
 }
 
 function getNoteId() {
-    if ((window.location.href).indexOf('?') !== -1) {
-        const queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1)
-        const queryStringAr = queryString.split('=')
-        if (queryStringAr[0] === 'note') {
-            return queryStringAr[1]
-        }
-    }
+    return window.location.href.split('/').join('#').split('#').filter(e => !isNaN(e))[1]
 }

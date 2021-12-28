@@ -15,7 +15,7 @@ class CreateNoteModalBox extends AbstractModalBox
         parent::__construct(
             'create-note-modal-box',
             'Create new Note',
-            FormElement::getInputElement('note-title', 'title', 'Note Title', '', '').
+            FormElement::getInputElement('note-title', 'title', 'Note Title', '', '') .
             FormElement::getHiddenInputElement('folderId', $folderId)
         );
         $this->setFooterConfirmCancel();
@@ -23,6 +23,6 @@ class CreateNoteModalBox extends AbstractModalBox
 
     public function __toString(): string
     {
-        return (new FormElement('create-note-form', 'Note/CreateNote.php', 'get'))->addContent($this->getModalBox());
+        return (new FormElement('create-note-form', '/Note/CreateNote.php', 'get'))->addContent($this->getModalBox());
     }
 }

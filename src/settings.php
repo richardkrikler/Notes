@@ -23,7 +23,7 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
         <div class="mb-1">
             <label for="theme-mode" class="form-label">Theme Mode</label>
             <select class="form-select" name="theme-mode" onchange="updateStateSetting(1, this.value)">
-                {$optionElements}
+                $optionElements
             </select>
         </div>
     
@@ -31,6 +31,51 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
             <input type="checkbox" id="dark-mode" name="darkmode" checked>
             <label for="dark-mode">Dark Mode</label>
         </div>-->
+    </div>
+    <div class="mt-5">
+        <h2>Keyboard-Shortcut List</h2>
+        <table class="table table-striped table-bordered rounded-1 mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Cmd + Option + N</th>
+                    <td>Create new Folder (in index) / Note (in folder)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + E</th>
+                    <td>Switch between Note Viewer and Editor</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + G</th>
+                    <td>Viewer: Toggle Table-of-Contents Modal</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + Esc</th>
+                    <td>Viewer: clear URL from Header-ID</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + S</th>
+                    <td>Editor: Save Note</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + B</th>
+                    <td>Editor: Bold-Text (insert **)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + K</th>
+                    <td>Editor: Italic-Text (insert *)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + Option + C</th>
+                    <td>Editor: Code-Block (insert ''')</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 SETTINGS
