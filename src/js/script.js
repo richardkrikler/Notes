@@ -9,15 +9,3 @@ async function updateStateSetting(settingId, optionNumber) {
 function getNoteId() {
     return window.location.href.split('/').join('#').split('#').filter(e => !isNaN(e))[1]
 }
-
-function saveYScrollPos(scrollElementContainerId) {
-    localStorage.setItem('noteId', getNoteId())
-    localStorage.setItem('yScrollPos', String(document.getElementById(scrollElementContainerId).scrollHeight))
-}
-
-function scrollToSavedYScrollPos(scrollElementContainerId) {
-    if (localStorage.getItem('noteId') !== null && localStorage.getItem('noteId') === getNoteId() && localStorage.getItem('yScrollPos') !== null) {
-        console.log(localStorage.getItem('yScrollPos'))
-        // document.getElementById(scrollElementContainerId).scrollTo(0, Number(localStorage.getItem('yScrollPos')))
-    }
-}

@@ -23,10 +23,7 @@ hljs.highlightAll();
 
 window.addEventListener("beforeprint", () => window.location = '/note/' + getNoteId() + '/print')
 
-shortcut.add('Meta+E', () => {
-    saveYScrollPos('main-element')
-    window.location = '/note/' + getNoteId() + '/edit'
-})
+shortcut.add('Meta+E', () => window.location = '/note/' + getNoteId() + '/edit')
 
 shortcut.add('Meta+G', () => bootstrap.Modal.getOrCreateInstance(document.getElementById('tocModal')).toggle())
 
