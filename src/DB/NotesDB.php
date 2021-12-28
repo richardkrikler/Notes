@@ -79,6 +79,23 @@ class NotesDB
             $stmt = $DB->prepare('INSERT INTO notes (fk_pk_folder_id, title, content) VALUE (:fkPkFolderId, :title, \'\') ');
             $stmt->bindParam(":fkPkFolderId", $folderId);
             $stmt->bindParam(":title", $title);
+            if ($stmt->execute()) {
+                self::saveNote($DB->lastInsertId(), '# ' . $title . PHP_EOL);
+            }
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
+
+    static function updateNoteTitle(int $noteId, string $title): void
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('UPDATE notes SET title = :title WHERE pk_note_id = :pkNoteId');
+            $stmt->bindParam(":pkNoteId", $noteId);
+            $stmt->bindParam(":title", $title);
             $stmt->execute();
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
@@ -94,7 +111,12 @@ class NotesDB
             $stmt = $DB->prepare('UPDATE notes SET content = :content WHERE pk_note_id = :pkNoteId');
             $stmt->bindParam(":pkNoteId", $noteId);
             $stmt->bindParam(":content", $content);
-            $stmt->execute();
+            if ($stmt->execute()) {
+                $noteTitleMatch = preg_match('/(#)\s?(.+)/m', $content, $titleMatches);
+                if ($noteTitleMatch) {
+                    self::updateNoteTitle($noteId, $titleMatches[2]);
+                }
+            }
             $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
             print('Error: ' . $e);
