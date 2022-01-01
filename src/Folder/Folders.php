@@ -42,7 +42,7 @@ class Folders
     {
         $result = '<div class="container mt-5"><div id="folder-grid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 gap-5 justify-content-center mx-4 pb-5">';
         foreach ($this->folders as $folder) {
-            $result .= '<a class="folder-box col d-flex justify-content-center flex-column rounded text-decoration-none" href="folder/' . $folder->getPkFolderId() . '">
+            $result .= '<a class="folder-box col d-flex justify-content-center flex-column rounded text-decoration-none p-0" href="folder/' . $folder->getPkFolderId() . '">
                             <span class="text-center h4 mb-0 px-2 py-2 fw-normal">' . $folder->getName() . '</span>
                         </a>';
         }

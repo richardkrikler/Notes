@@ -102,10 +102,9 @@ nav .dropdown-toggle::after {
     border: 1px solid var(--light-two);
 }
 
-.folder-box a {
-    overflow-x: hidden;
+.folder-box span {
     overflow-y: scroll;
-    text-overflow: ellipsis;
+    overflow-wrap: break-word;
 }
 
 /* note content / rendered */
