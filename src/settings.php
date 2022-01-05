@@ -53,6 +53,10 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
                     <td>Switch between Note Viewer and Editor</td>
                 </tr>
                 <tr>
+                    <th scope="row">Cmd + Up</th>
+                    <td>Folder/Viewer: Upper Directory</td>
+                </tr>
+                <tr>
                     <th scope="row">Cmd + G</th>
                     <td>Viewer: Toggle Table-of-Contents Modal</td>
                 </tr>

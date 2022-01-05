@@ -33,6 +33,12 @@ shortcut.add('Meta+Esc', () => {
     }
 })
 
+function getFolderId() {
+    return document.getElementsByClassName('folder-link')[0].href.split('/')[4]
+}
+
+shortcut.add('Meta+Up', () => window.location = '/folder/' + getFolderId())
+
 function getTableOfContents() {
     let toc = '<ul>';
     [...noteContentElement.children].filter(e => ['H1', 'H2', 'H3'].includes(e.nodeName)).forEach((e, i, a) => {

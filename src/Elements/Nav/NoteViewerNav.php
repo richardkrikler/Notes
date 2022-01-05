@@ -16,10 +16,10 @@ class NoteViewerNav extends AbstractNav
         parent::addContent(<<<NOTE_NAV
         <script src="/js/noteViewer.js" defer></script>
         <h4 class="folder-name mb-0 fw-normal d-inline-flex">
-            <a class="align-self-center nav-icon" href="/folder/{$folder->getPkFolderId()}">
+            <a class="align-self-center nav-icon folder-link" href="/folder/{$folder->getPkFolderId()}">
                 <i class="fas fa-folder me-md-2"></i>
             </a>
-            <a class="align-self-center" href="/folder/{$folder->getPkFolderId()}">
+            <a class="align-self-center folder-link" href="/folder/{$folder->getPkFolderId()}">
                 <p class="align-self-center mb-0 d-md-block d-none">{$folder->getName()}</p>
             </a>
         </h4>
