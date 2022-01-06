@@ -45,6 +45,10 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
             </thead>
             <tbody>
                 <tr>
+                    <th scope="row">Cmd + ,</th>
+                    <td>View Settings</td>
+                </tr>
+                <tr>
                     <th scope="row">Cmd + Option + N</th>
                     <td>Create new Folder (in index) / Note (in folder)</td>
                 </tr>

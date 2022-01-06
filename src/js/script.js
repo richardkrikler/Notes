@@ -17,3 +17,5 @@ async function updateBooleanSetting(settingId, bool) {
 function getNoteId() {
     return window.location.href.split('/').join('#').split('#').filter(e => !isNaN(e))[1]
 }
+
+shortcut.add('Meta+,', () => window.location = '/settings.php')
