@@ -2,9 +2,11 @@
 
 namespace RichardKrikler\Notes\Note;
 
+use JsonSerializable;
+
 require_once 'Note.php';
 
-class Notes
+class Notes implements JsonSerializable
 {
     private $notes;
 
@@ -35,6 +37,13 @@ class Notes
     public function addNote(Note $note)
     {
         $this->notes[] = $note;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'notes' => $this->notes
+        ];
     }
 
     /**

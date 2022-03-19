@@ -39,6 +39,30 @@ function getFolderId() {
 
 shortcut.add('Meta+Up', () => window.location = '/folder/' + getFolderId())
 
+
+async function nextOrPreviousNote(nextOrPrevious) {
+    await fetch('/Note/getNotesFromFolderId.php?folderId=' + getFolderId())
+        .then(res => res.json())
+        .then(res => {
+            const noteArrayPos = res.notes.findIndex(n => n.noteId === Number(getNoteId()))
+
+            if ((noteArrayPos === 0 && nextOrPrevious === 1) || (noteArrayPos === (res.notes.length - 1) && nextOrPrevious === 0)) {
+                return
+            }
+
+            if (nextOrPrevious === 0) {
+                window.location = '/note/' + res.notes[noteArrayPos + 1].noteId
+            } else if (nextOrPrevious === 1) {
+                window.location = '/note/' + res.notes[noteArrayPos - 1].noteId
+            }
+        })
+}
+
+shortcut.add('Meta+Alt+J', () => nextOrPreviousNote(1))
+
+shortcut.add('Meta+Alt+L', () => nextOrPreviousNote(0))
+
+
 function getTableOfContents() {
     let toc = '<ul>';
     [...noteContentElement.children].filter(e => ['H1', 'H2', 'H3'].includes(e.nodeName)).forEach((e, i, a) => {

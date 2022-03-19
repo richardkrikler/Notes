@@ -69,6 +69,14 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
                     <td>Viewer: clear URL from Header-ID</td>
                 </tr>
                 <tr>
+                    <th scope="row">Cmd + Option + J</th>
+                    <td>Viewer: Open Previous Note</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cmd + Option + L</th>
+                    <td>Viewer: Open Next Note</td>
+                </tr>
+                <tr>
                     <th scope="row">Cmd + S</th>
                     <td>Editor: Save Note</td>
                 </tr>
