@@ -78,3 +78,6 @@ function getTableOfContents() {
 }
 
 document.getElementsByClassName('note-toc')[0].innerHTML = getTableOfContents()
+
+
+document.title = document.querySelector('h1').innerHTML

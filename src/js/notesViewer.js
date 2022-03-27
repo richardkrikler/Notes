@@ -7,3 +7,6 @@ document.getElementById('create-note-modal-box').addEventListener('shown.bs.moda
 
 
 shortcut.add('Meta+Up', () => window.location = '/index.php')
+
+
+document.title = document.querySelector('p').innerHTML
