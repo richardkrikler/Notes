@@ -58,9 +58,9 @@ async function nextOrPreviousNote(nextOrPrevious) {
         })
 }
 
-shortcut.add('Meta+Alt+J', () => nextOrPreviousNote(1))
+shortcut.add('Meta+Alt+O', () => nextOrPreviousNote(1))
 
-shortcut.add('Meta+Alt+L', () => nextOrPreviousNote(0))
+shortcut.add('Meta+Alt+P', () => nextOrPreviousNote(0))
 
 
 function getTableOfContents() {
