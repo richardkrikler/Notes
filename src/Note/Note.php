@@ -2,7 +2,9 @@
 
 namespace RichardKrikler\Notes\Note;
 
-class Note
+use JsonSerializable;
+
+class Note implements JsonSerializable
 {
     private $pkNoteId;
     private $fkPkFolderId;
@@ -18,6 +20,15 @@ class Note
         $this->pkNoteId = $pkNoteId;
         $this->fkPkFolderId = $fkPkFolderId;
         $this->name = $name;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'noteId' => $this->pkNoteId,
+            'folderId' => $this->fkPkFolderId,
+            'name' => $this->name
+        ];
     }
 
     /**

@@ -2,9 +2,11 @@
 
 namespace RichardKrikler\Notes\Note;
 
+use JsonSerializable;
+
 require_once 'Note.php';
 
-class Notes
+class Notes implements JsonSerializable
 {
     private $notes;
 
@@ -37,6 +39,13 @@ class Notes
         $this->notes[] = $note;
     }
 
+    public function jsonSerialize()
+    {
+        return [
+            'notes' => $this->notes
+        ];
+    }
+
     /**
      * @return string
      */
@@ -44,9 +53,9 @@ class Notes
     {
         $result = '<div class="container mt-5"><div id="folder-grid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 gap-5 justify-content-center mx-4 pb-5">';
         foreach ($this->notes as $note) {
-            $result .= '<div class="folder-box col d-flex justify-content-center flex-column rounded">
-                        <a class="text-center text-decoration-none h4 mb-0 px-2 py-2 fw-normal" href="/note/' . $note->getPkNoteId() . '">' . $note->getName() . '</a>
-                        </div>';
+            $result .= '<a class="folder-box col d-flex justify-content-center flex-column rounded text-decoration-none p-0" href="/note/' . $note->getPkNoteId() . '">
+                            <span class="text-center h4 mb-0 px-2 py-2 fw-normal">' . $note->getName() . '</span>
+                        </a>';
         }
         $result .= '</div></div>';
 

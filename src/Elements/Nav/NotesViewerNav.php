@@ -34,8 +34,6 @@ class NotesViewerNav extends AbstractNav
         
         <div class="nav-icon"><i class="fas fa-i-cursor" data-bs-toggle="modal" data-bs-target="#rename-folder-modal-box"></i>$renameNoteModalBox</div>
         
-        <div class="vertical-divider"></div>
-        
         <div class="nav-icon"><i class="fas fa-plus-square" data-bs-toggle="modal" data-bs-target="#create-note-modal-box"></i>$createNoteModalBox</div>
 
         <div class="nav-icon"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete-folder-modal-box"></i>$deleteFolderModalBox</div>

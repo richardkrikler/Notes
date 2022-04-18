@@ -33,6 +33,36 @@ shortcut.add('Meta+Esc', () => {
     }
 })
 
+function getFolderId() {
+    return document.getElementsByClassName('folder-link')[0].href.split('/')[4]
+}
+
+shortcut.add('Meta+Up', () => window.location = '/folder/' + getFolderId())
+
+
+async function nextOrPreviousNote(nextOrPrevious) {
+    await fetch('/Note/getNotesFromFolderId.php?folderId=' + getFolderId())
+        .then(res => res.json())
+        .then(res => {
+            const noteArrayPos = res.notes.findIndex(n => n.noteId === Number(getNoteId()))
+
+            if ((noteArrayPos === 0 && nextOrPrevious === 1) || (noteArrayPos === (res.notes.length - 1) && nextOrPrevious === 0)) {
+                return
+            }
+
+            if (nextOrPrevious === 0) {
+                window.location = '/note/' + res.notes[noteArrayPos + 1].noteId
+            } else if (nextOrPrevious === 1) {
+                window.location = '/note/' + res.notes[noteArrayPos - 1].noteId
+            }
+        })
+}
+
+shortcut.add('Meta+Alt+O', () => nextOrPreviousNote(1))
+
+shortcut.add('Meta+Alt+P', () => nextOrPreviousNote(0))
+
+
 function getTableOfContents() {
     let toc = '<ul>';
     [...noteContentElement.children].filter(e => ['H1', 'H2', 'H3'].includes(e.nodeName)).forEach((e, i, a) => {
@@ -48,3 +78,6 @@ function getTableOfContents() {
 }
 
 document.getElementsByClassName('note-toc')[0].innerHTML = getTableOfContents()
+
+
+document.title = document.querySelector('h1').innerHTML

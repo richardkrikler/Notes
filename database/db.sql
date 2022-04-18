@@ -77,7 +77,8 @@ CREATE TABLE files
 
 /* Insert Settings */
 INSERT INTO settings (pk_setting_id, title)
-VALUES (1, 'Theme Mode');
+VALUES (1, 'Theme Mode'),
+       (2, 'Header Update Mode');
 
 INSERT INTO state_settings (pk_state_setting_id)
 VALUES (1);
@@ -87,6 +88,9 @@ INSERT INTO options_state_settings (pk_state_option_setting_id, fk_pk_state_sett
 VALUES (1, 1, 1, 'Light', true),
        (2, 1, 2, 'Dark', false),
        (3, 1, 3, 'Sync with System', false);
+
+INSERT INTO boolean_settings (pk_boolean_setting_id, bool)
+VALUES (2, true);
 
 
 /* Select Settings */

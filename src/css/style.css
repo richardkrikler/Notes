@@ -4,12 +4,12 @@
     --light-two: #D0D7DE;
     --light-three: #BCBCBC;
     --light-four: #30363D;
-    --dark-text: #F0F6FC;
-    --dark-one: #30363D;
-    --dark-two: #21262D;
-    --dark-three: #161B22;
-    --dark-four: #0D1117;
-    --dark-five: #010409;
+    --dark-text: #EBEBEB;
+    --dark-one: #373C3F;
+    --dark-two: #313437;
+    --dark-three: #2F3437;
+    --dark-four: #656B6E;
+    --dark-five: #4B5053;
 }
 
 * {
@@ -102,10 +102,9 @@ nav .dropdown-toggle::after {
     border: 1px solid var(--light-two);
 }
 
-.folder-box a {
-    overflow-x: hidden;
+.folder-box span {
     overflow-y: scroll;
-    text-overflow: ellipsis;
+    overflow-wrap: break-word;
 }
 
 /* note content / rendered */
@@ -125,9 +124,17 @@ nav .dropdown-toggle::after {
     padding: 5px 10px;
 }
 
-/*.note-content p > ul*/
 .note-content p + ul {
     margin-top: -11pt;
+}
+
+.note-content h1,
+.note-content h2,
+.note-content h3,
+.note-content h4,
+.note-content h5,
+.note-content h6 {
+    width: max-content;
 }
 
 .note-content h1:hover,
@@ -179,24 +186,28 @@ pre code * {
 /* Theme-Mode */
 body[theme-mode='2'],
 body[theme-mode='2'] .modal-content {
-    background-color: var(--dark-four);
+    background-color: var(--dark-three);
 }
 
 body[theme-mode='2'] * :not(pre code *) {
     color: var(--dark-text) !important;
 }
 
+body[theme-mode='2'] .modal-dialog .modal-content {
+    border-color: var(--dark-four);
+}
+
 body[theme-mode='2'] .modal-dialog .modal-header {
-    border-bottom-color: var(--dark-one);
+    border-bottom-color: var(--dark-four);
 }
 
 body[theme-mode='2'] .modal-dialog .modal-footer {
-    border-top-color: var(--dark-one);
+    border-top-color: var(--dark-four);
 }
 
 body[theme-mode='2'] nav {
-    background-color: var(--dark-three);
-    border-bottom-color: var(--dark-one);
+    background-color: var(--dark-one);
+    border-bottom-color: var(--dark-four);
 }
 
 body[theme-mode='2'] .vertical-divider {
@@ -204,41 +215,45 @@ body[theme-mode='2'] .vertical-divider {
 }
 
 body[theme-mode='2'] .folder-box {
-    background-color: var(--dark-three);
-    border-color: var(--dark-one);
+    background-color: var(--dark-one);
+    border-color: var(--dark-four);
+}
+
+body[theme-mode='2'] code {
+    background-color: var(--dark-one);
 }
 
 body[theme-mode='2'] pre {
-    border-color: var(--dark-one);
+    border-color: var(--dark-four);
 }
 
 body[theme-mode='2'] pre::after {
-    background-color: var(--dark-three);
-    border-left: 1px solid var(--dark-one);
-    border-bottom: 1px solid var(--dark-one);
+    background-color: var(--dark-five);
+    border-left: 1px solid var(--dark-four);
+    border-bottom: 1px solid var(--dark-four);
 }
 
 body[theme-mode='2'] input {
-    background-color: var(--dark-five);
-    border-color: var(--dark-one);
+    background-color: var(--dark-five) !important;
+    border-color: var(--dark-four);
 }
 
 body[theme-mode='2'] select {
-    background-color: var(--dark-two);
-    border-color: var(--dark-one);
+    background-color: var(--dark-one);
+    border-color: var(--dark-four);
 }
 
 body[theme-mode='2'] .dropdown-menu {
-    background-color: var(--dark-two);
-    border-color: var(--dark-one);
+    background-color: var(--dark-one);
+    border-color: var(--dark-four);
 }
 
 body[theme-mode='2'] .dropdown-menu input {
-    background-color: var(--dark-two);
+    background-color: var(--dark-one) !important;
 }
 
 body[theme-mode='2'] .dropdown-menu *:hover {
-    background-color: var(--dark-one);
+    background-color: var(--dark-five) !important;
 }
 
 body[theme-mode='2'] #saveNote.unsaved {
