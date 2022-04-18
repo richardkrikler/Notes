@@ -128,6 +128,15 @@ nav .dropdown-toggle::after {
     margin-top: -11pt;
 }
 
+.note-content h1,
+.note-content h2,
+.note-content h3,
+.note-content h4,
+.note-content h5,
+.note-content h6 {
+    width: max-content;
+}
+
 .note-content h1:hover,
 .note-content h2:hover,
 .note-content h3:hover,
