@@ -5,7 +5,7 @@ services:
     build: .
     container_name: notes_php-apache
     ports:
-      - "90:80"
+      - 127.0.0.1:90:80
     volumes:
       - ./src:/var/www/html/
 
@@ -13,7 +13,7 @@ services:
     image: mysql:latest
     container_name: notes_db
     ports:
-      - "91:3306"
+      - 127.0.0.1:91:3306
     volumes:
       - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql
     environment:
@@ -29,4 +29,4 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
     ports:
-      - "92:80"
+      - 127.0.0.1:92:80
