@@ -37,7 +37,11 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
         <div class="mb-1 mt-4">
             <label for="export" class="form-label">Exporting</label><br>
             <form action="/Note/ExportNotes.php">
-                <button class="btn btn-secondary" id="export">Export</button>
+                <button class="btn btn-secondary" id="export">Export Notes</button>
+            </form>
+            
+            <form action="/Note/ExportImages.php" class="mt-2">
+                <button class="btn btn-secondary" id="export">Export Images</button>
             </form>
         </div>
     </div>

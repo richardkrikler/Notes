@@ -41,4 +41,25 @@ class FilesDB
             exit();
         }
     }
+
+    static function getFileNames()
+    {
+        $DB = DB::getDB();
+        try {
+            $stmt = $DB->prepare('SELECT name FROM files');
+
+            $names = [];
+            if ($stmt->execute()) {
+                while ($row = $stmt->fetch()) {
+                    $names[] = $row['name'];
+                }
+            }
+
+            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $names;
+        } catch (PDOException  $e) {
+            print('Error: ' . $e);
+            exit();
+        }
+    }
 }
