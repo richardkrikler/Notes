@@ -33,6 +33,13 @@ print(SiteTemplate::render(new SettingsNav(), <<<SETTINGS
             <label for="header-update-mode" class="form-label">Update Note-Header to first H1</label><br>
             <input class="form-check-input" type="checkbox" id="header-update-mode" name="header-update-mode" $headerUpdateModeChecked onchange="updateBooleanSetting(2, this.checked)">
         </div>
+        
+        <div class="mb-1 mt-4">
+            <label for="export" class="form-label">Exporting</label><br>
+            <form action="/Note/ExportNotes.php">
+                <button class="btn btn-secondary" id="export">Export</button>
+            </form>
+        </div>
     </div>
     <div class="mt-5">
         <h2>Keyboard-Shortcut List</h2>
